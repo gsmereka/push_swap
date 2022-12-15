@@ -17,6 +17,7 @@ static void	free_program_memory(t_data *data);
 void	exit_error(int error_type, t_data *data)
 {
 	free_program_memory(data);
+	ft_putstr_fd("Error\n", 2);
 	exit(error_type);
 }
 
