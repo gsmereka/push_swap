@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 09:15:19 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/16 12:27:44 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/16 13:53:23 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,6 @@ t_list	*ft_list_at(t_list *begin_list, unsigned int index);
 void	ft_list_reverse(t_list **begin_list);
 
 // swaps
-int    ft_swap(t_list *stack, t_data *data);
+int		ft_swap(char stack, t_data *data);
 
 #endif

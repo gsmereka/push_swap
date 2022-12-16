@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 00:06:29 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/16 00:07:22 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/16 14:02:51 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,15 @@ t_list	*ft_list_last(t_list *begin_list)
 void	ft_list_push_back(t_list **begin_list, int nmb)
 {
 	t_list	*last_node;
+	t_list	*new_node;
 
 	if (*begin_list == NULL)
 		*begin_list = ft_create_elem(nmb);
 	else
 	{
 		last_node = ft_list_last(*begin_list);
-		last_node->next = ft_create_elem(nmb);
-		last_node->next->prev = last_node;
+		new_node = ft_create_elem(nmb);
+		last_node->next = new_node;
+		new_node->prev = last_node;
 	}
 }
