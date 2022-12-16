@@ -12,23 +12,8 @@
 
 #include "../headers/push_swap.h"
 
-static void	check_args_amount(int argc);
-
 void	check_args(int argc)
 {
-	check_args_amount(argc);
-}
-
-static void	check_args_amount(int argc)
-{
-	char	*error_msg;
-
-	if (argc < 2)
-	{
-		error_msg = ft_strdup("push_swap needs a list of integers\ntry "
-				"\'./push_swap nmb_1 nmb_2 nmb_3...\'\n");
-		write(2, error_msg, ft_strlen(error_msg));
-		free(error_msg);
-		exit(2);
-	}
+	if (argc <= 2)
+		exit(0);
 }
