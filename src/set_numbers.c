@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 22:57:58 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/15 13:35:58 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/16 11:17:46 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	set_numbers(char **argv, t_data *data)
 	i = 0;
 	while (argv[i + 1])
 	{
-		data->numbers[i] = arg_to_int(argv[i + 1], data);
-		validate_number(data->numbers[i], argv[i + 1], data);
+		data->user_args[i] = arg_to_int(argv[i + 1], data);
+		validate_number(data->user_args[i], argv[i + 1], data);
 		i++;
 	}
 }

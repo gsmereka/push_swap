@@ -31,5 +31,5 @@ static void	free_program_memory(t_data *data)
 {
 	ft_list_clear(data->stack_a);
 	ft_list_clear(data->stack_b);
-	free(data->numbers);
+	free(data->user_args);
 }

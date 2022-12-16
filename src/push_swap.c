@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 23:03:02 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/16 00:04:24 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/16 12:49:28 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	main(int argc, char *argv[], char *envp[])
 	initialize(argc, argv, &data);
 	set_numbers(argv, &data);
 	set_stack(&data);
+	// ft_swap(data.stack_a, &data);
 	print_numbers(argc, &data);
 	finalize(&data);
 }
