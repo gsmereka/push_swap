@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 09:15:19 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/15 16:44:34 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/16 00:05:47 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,15 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 
 // list_utils_1
-t_list *ft_create_elem(void *nmb);
-void 	ft_list_push_front(t_list **begin_list, void *nmb);
-int 	ft_list_size(t_list *begin_list);
-t_list *ft_list_last(t_list *begin_list);
-void 	ft_list_push_back(t_list **begin_list, void *nmb);
+t_list	*ft_create_elem(int nmb);
+void	ft_list_push_front(t_list **begin_list, int nmb);
+int		ft_list_size(t_list *begin_list);
+t_list	*ft_list_last(t_list *begin_list);
+void	ft_list_push_back(t_list **begin_list, int nmb);
 
 // list_utils_2
-t_list *ft_list_push_strs(int size, char **strs);
-void	ft_list_clear(t_list *begin_list, void (*free_fct)(void *));
-t_list *ft_list_at(t_list *begin_list, unsigned int nbr);
-void 	ft_list_reverse(t_list **begin_list);
+void	ft_list_clear(t_list *begin_list);
+t_list	*ft_list_at(t_list *begin_list, unsigned int index);
+void	ft_list_reverse(t_list **begin_list);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 16:32:14 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/15 10:01:11 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/15 23:58:36 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ int	initialize(int argc, char **argv, t_data *data)
 
 static void	set_config(int argc, t_data *data)
 {
+	data->list_size = argc - 1;
 	data->numbers = NULL;
+	data->stack_a = NULL;
+	data->stack_b = NULL;
 }
 
 static void	set_memory(int argc, t_data *data)

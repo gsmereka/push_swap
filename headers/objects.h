@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 11:02:22 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/15 13:51:14 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/15 23:36:26 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,17 @@
 
 typedef struct s_list
 {
-	int				*nmb;
+	int				nmb;
 	struct s_list	*next;
 	struct s_list	*prev;
 }	t_list;
 
 typedef struct s_data
 {
-	int		*numbers;
+	int				*numbers;
+	int				list_size;
+	struct s_list	*stack_a;
+	struct s_list	*stack_b;
 }	t_data;
 
 #endif

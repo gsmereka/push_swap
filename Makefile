@@ -22,7 +22,7 @@ CFLAGS			=
 # CFLAGS			=	-Wall -Wextra -Werror
 
 SRC				=	./src/push_swap.c ./src/check_args.c ./src/set_numbers.c \
-					./src/finalize.c ./src/initialize.c ./src/redirect.c 
+					./src/finalize.c ./src/initialize.c ./src/set_stack.c 
 
 SRC_B			=	
 

@@ -14,7 +14,7 @@
 
 static void	check_args_amount(int argc);
 
-void	check_args(int argc, char **argv, t_data *data)
+void	check_args(int argc)
 {
 	check_args_amount(argc);
 }
