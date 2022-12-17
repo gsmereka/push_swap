@@ -32,7 +32,8 @@ UTILS			=	./utils/ft_strchr.c ./utils/ft_strdup.c ./utils/ft_strjoin.c ./utils/f
 					./utils/ft_printf.c ./utils/ft_itoa.c ./utils/ft_itohex.c ./utils/ft_toupper.c \
 					./utils/ft_putchar_fd.c ./utils/ft_putstr_fd.c ./utils/ft_utoa.c \
 					./utils_list/list_utils_1.c ./utils_list/list_utils_2.c \
-					./utils_list/ft_push.c ./utils_list/ft_swap.c
+					./utils_list/ft_push.c ./utils_list/ft_swap.c \
+					./utils/get_next_line.c
 
 OBJ				=	$(SRC:.c=.o)
 
