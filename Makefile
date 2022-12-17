@@ -18,8 +18,8 @@ HEADERS			=	./headers/push_swap.h ./headers/objects.h ./headers/utils.h
 
 HEADERS_BONUS	=	./headers/push_swap_bonus.h ./headers/objects_bonus.h ./headers/utils.h 
 
-CFLAGS			=	
-# CFLAGS			=	-Wall -Wextra -Werror
+# CFLAGS			=	
+CFLAGS			=	-Wall -Wextra -Werror
 
 SRC				=	./src/push_swap.c ./src/check_args.c ./src/set_numbers.c \
 					./src/finalize.c ./src/initialize.c ./src/set_stack.c 
@@ -32,7 +32,8 @@ UTILS			=	./utils/ft_strchr.c ./utils/ft_strdup.c ./utils/ft_strjoin.c ./utils/f
 					./utils/ft_printf.c ./utils/ft_itoa.c ./utils/ft_itohex.c ./utils/ft_toupper.c \
 					./utils/ft_putchar_fd.c ./utils/ft_putstr_fd.c ./utils/ft_utoa.c \
 					./utils_list/list_utils_1.c ./utils_list/list_utils_2.c \
-					./utils_list/ft_push.c ./utils_list/ft_swap.c \
+					./utils_list/ft_push.c ./utils_list/ft_swap.c ./utils_list/ft_reverse_rotate.c \
+					./utils_list/ft_rotate.c \
 					./utils/get_next_line.c
 
 OBJ				=	$(SRC:.c=.o)

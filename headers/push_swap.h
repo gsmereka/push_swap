@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 23:03:35 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/15 23:26:22 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/17 19:05:26 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	set_numbers(char **argv, t_data *data);
 void	set_stack(t_data *data);
 
 // initialize
-int		initialize(int argc, char **argv, t_data *data);
+int		initialize(int argc, t_data *data);
 
 // execute
 

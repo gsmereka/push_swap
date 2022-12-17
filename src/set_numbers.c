@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 22:57:58 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/16 11:17:46 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/17 19:12:17 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,13 +77,18 @@ static int	validate_number(int nbr, char *original_nbr, t_data *data)
 static int	compare_absolute_values(char *nbr_copy, char *original_nbr)
 {
 	int	diff;
+	int	ptr_1;
+	int	ptr_2;
 
+	ptr_1 = 0;
+	ptr_2 = 0;
 	if (*nbr_copy == '-')
-		*nbr_copy++;
+		ptr_1++;
 	if (*original_nbr == '+' || *original_nbr == '-')
-		*original_nbr++;
-	while (*original_nbr == '0' && *original_nbr + 1 != '\0')
-		*original_nbr++;
-	diff = ft_strncmp(nbr_copy, original_nbr, ft_strlen(original_nbr));
+		ptr_2++;
+	while (*original_nbr + ptr_2 == '0' && *original_nbr + 1 + ptr_2 != '\0')
+		ptr_2++;
+	diff = ft_strncmp(nbr_copy + ptr_1, original_nbr + ptr_2,
+			ft_strlen(original_nbr + ptr_2));
 	return (diff);
 }

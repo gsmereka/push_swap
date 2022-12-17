@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 12:16:31 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/16 15:40:58 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/17 19:06:04 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	ft_swap(char stack_c, t_data *data)
 	set_prev_pointers_on_new_nodes(&new_stack);
 	set_next_pointers_on_new_nodes(&new_stack);
 	put_new_stack_on_data(stack_c, &new_stack, data);
+	return (0);
 }
 
 static void	swap_two_first_nodes(t_list *old_stack, t_swap *new_stack)

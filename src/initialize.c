@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 16:32:14 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/16 11:27:35 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/17 19:05:16 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	set_config(int argc, t_data *data);
 static void	set_memory(int argc, t_data *data);
 
-int	initialize(int argc, char **argv, t_data *data)
+int	initialize(int argc, t_data *data)
 {
 	set_config(argc, data);
 	set_memory(argc, data);
