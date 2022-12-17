@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 16:29:17 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/16 00:08:02 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/16 20:00:04 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_list	*ft_list_at(t_list *begin_list, unsigned int index)
 	i = 0;
 	while (begin_list != NULL)
 	{
-		if (!begin_list->next || i == index)
+		if (i == index)
 			return (begin_list);
 		begin_list = begin_list->next;
 		i++;
