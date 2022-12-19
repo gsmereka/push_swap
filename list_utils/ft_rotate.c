@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_reverse_rotate.c                                :+:      :+:    :+:   */
+/*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/17 14:50:55 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/17 19:07:02 by gsmereka         ###   ########.fr       */
+/*   Created: 2022/12/17 15:22:31 by gsmereka          #+#    #+#             */
+/*   Updated: 2022/12/19 18:00:22 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/utils.h"
+#include "../headers/push_swap.h"
 
-static void	init_new_nodes(t_rotate *new, t_list **stack);
-static void	init_next_pointers_on_new_nodes(t_rotate *new);
-static void	init_prev_pointers_on_new_nodes(t_rotate *new);
+static void	set_new_last_node(t_rotate *new, t_list **stack);
+static void	set_new_first_node(t_rotate *new, t_list **stack);
+static void	set_new_penult_node(t_rotate *new, t_list **stack);
 static void	put_new_stack_on_data(t_rotate *new, t_list **stack);
 
-int	ft_reverse_rotate(char stack_c, t_data *data)
+int	ft_rotate(char stack_c, t_data *data)
 {
 	t_list		**stack;
 	t_rotate	new;
@@ -30,30 +30,30 @@ int	ft_reverse_rotate(char stack_c, t_data *data)
 		return (0);
 	if ((*stack)->next == NULL)
 		return (0);
-	init_new_nodes(&new, stack);
-	init_next_pointers_on_new_nodes(&new);
-	init_prev_pointers_on_new_nodes(&new);
+	set_new_first_node(&new, stack);
+	set_new_penult_node(&new, stack);
+	set_new_last_node(&new, stack);
 	put_new_stack_on_data(&new, stack);
 	return (0);
 }
 
-static void	init_new_nodes(t_rotate *new, t_list **stack)
-{
-	new->first_node = ft_list_last(*stack);
-	new->scond_node = *stack;
-	new->last_node = (ft_list_last(*stack))->prev;
-}
-
-static void	init_next_pointers_on_new_nodes(t_rotate *new)
-{
-	new->first_node->next = new->scond_node;
-	new->last_node->next = NULL;
-}
-
-static void	init_prev_pointers_on_new_nodes(t_rotate *new)
-{
+static void	set_new_first_node(t_rotate *new, t_list **stack)
+{	
+	new->first_node = (*stack)->next;
 	new->first_node->prev = NULL;
-	new->scond_node->prev = new->first_node;
+}
+
+static void	set_new_penult_node(t_rotate *new, t_list **stack)
+{	
+	new->penult_node = ft_list_last(*stack);
+	new->penult_node->next = *stack;
+}
+
+static void	set_new_last_node(t_rotate *new, t_list **stack)
+{	
+	new->last_node = *stack;
+	new->last_node->next = NULL;
+	new->last_node->prev = new->penult_node;
 }
 
 static void	put_new_stack_on_data(t_rotate *new, t_list **stack)

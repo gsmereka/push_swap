@@ -6,11 +6,11 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 00:06:29 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/16 14:02:51 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/19 18:00:22 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/utils.h"
+#include "../headers/push_swap.h"
 
 t_list	*ft_create_elem(int nmb)
 {

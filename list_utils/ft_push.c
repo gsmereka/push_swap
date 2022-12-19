@@ -6,11 +6,11 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:47:43 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/17 13:36:39 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/19 18:00:24 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/utils.h"
+#include "../headers/push_swap.h"
 
 static int		push_stack(t_list **stack_1, t_list **stack_2);
 static t_list	*set_pushed_node(t_list **stack_1);

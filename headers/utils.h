@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 09:15:19 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/17 14:50:44 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/19 19:18:18 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include "./objects.h"
 
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(char *s);
@@ -37,25 +36,6 @@ char	*ft_utoa(unsigned int n);
 char	*ft_itohex(unsigned long long n);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
-
-// list_utils_1
-t_list	*ft_create_elem(int nmb);
-void	ft_list_push_front(t_list **begin_list, int nmb);
-int		ft_list_size(t_list *begin_list);
-t_list	*ft_list_last(t_list *begin_list);
-void	ft_list_push_back(t_list **begin_list, int nmb);
-
-// list_utils_2
-void	ft_list_clear(t_list *begin_list);
-t_list	*ft_list_at(t_list *begin_list, unsigned int index);
-void	ft_list_reverse(t_list **begin_list);
-
-// swaps
-int		ft_swap(char stack_c, t_data *data);
-int		ft_push(char stack_c, t_data *data);
-int		ft_rotate(char stack_c, t_data *data);
-int		ft_reverse_rotate(char stack_c, t_data *data);
-
 
 char	*get_next_line(int fd, int stop);
 

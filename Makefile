@@ -1,12 +1,12 @@
 # **************************************************************************** #
-#                                                                            #
+#                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/10/31 18:51:39 by gsmereka          #+#    #+#              #
-#    Updated: 2022/11/28 09:47:39 by gsmereka         ###   ########.fr        #
+#    Created: 2022/12/19 18:51:25 by gsmereka          #+#    #+#              #
+#    Updated: 2022/12/19 19:54:25 by gsmereka         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,42 +18,54 @@ HEADERS			=	./headers/push_swap.h ./headers/objects.h ./headers/utils.h
 
 HEADERS_BONUS	=	./headers/push_swap_bonus.h ./headers/objects_bonus.h ./headers/utils.h 
 
-# CFLAGS			=	
 CFLAGS			=	-Wall -Wextra -Werror
 
-SRC				=	./src/push_swap.c ./src/check_args.c ./src/set_numbers.c \
-					./src/finalize.c ./src/initialize.c ./src/set_stack.c 
+OBJ_DIR			=	./obj
+
+SRC_DIR			=	src
+
+BONUS_DIR		=	src_bonus
+
+UTILS_DIR		=	utils
+
+LIST_UTILS_DIR	=	list_utils
+
+SRC				=	push_swap.c check_args.c set_numbers.c \
+					finalize.c initialize.c set_stack.c \
 
 SRC_B			=	
 
-UTILS			=	./utils/ft_strchr.c ./utils/ft_strdup.c ./utils/ft_strjoin.c ./utils/ft_strlen.c \
-					./utils/ft_substr.c ./utils/ft_calloc.c ./utils/ft_strlcpy.c ./utils/ft_bzero.c \
-					./utils/ft_strncmp.c ./utils/ft_split.c ./utils/ft_isdigit.c \
-					./utils/ft_printf.c ./utils/ft_itoa.c ./utils/ft_itohex.c ./utils/ft_toupper.c \
-					./utils/ft_putchar_fd.c ./utils/ft_putstr_fd.c ./utils/ft_utoa.c \
-					./utils_list/list_utils_1.c ./utils_list/list_utils_2.c \
-					./utils_list/ft_push.c ./utils_list/ft_swap.c ./utils_list/ft_reverse_rotate.c \
-					./utils_list/ft_rotate.c \
-					./utils/get_next_line.c
+UTILS			=	ft_strchr.c ft_strdup.c ft_strjoin.c ft_strlen.c \
+					ft_substr.c ft_calloc.c ft_strlcpy.c ft_bzero.c \
+					ft_strncmp.c ft_split.c ft_isdigit.c \
+					ft_printf.c ft_itoa.c ft_itohex.c ft_toupper.c \
+					ft_putchar_fd.c ft_putstr_fd.c ft_utoa.c \
+					get_next_line.c
 
-OBJ				=	$(SRC:.c=.o)
+LIST_UTILS		=	ft_push.c ft_swap.c ft_reverse_rotate.c ft_rotate.c \
+					list_utils_1.c list_utils_2.c \
 
-OBJ_B			=	$(SRC_B:.c=.o)
+OBJ				=	$(addprefix $(OBJ_DIR)/, $(addprefix $(SRC_DIR)/, $(SRC:.c=.o)))
 
-OBJ_UTILS		=	$(UTILS:.c=.o)
+OBJ_B			=	$(addprefix $(OBJ_DIR)/, $(addprefix $(BONUS_DIR)/, $(SRC_B:.c=.o)))
+
+OBJ_UTILS		=	$(addprefix $(OBJ_DIR)/, $(addprefix $(UTILS_DIR)/, $(UTILS:.c=.o)))
+
+OBJ_LIST_U		=	$(addprefix $(OBJ_DIR)/, $(addprefix $(LIST_UTILS_DIR)/, $(LIST_UTILS:.c=.o)))
 
 all: $(NAME)
 
 bonus: $(NAME_B)
 
-.c.o:
+$(OBJ_DIR)/%.o: %.c
+	@mkdir -p $(OBJ_DIR) $(OBJ_DIR)/$(SRC_DIR) $(OBJ_DIR)/$(BONUS_DIR) $(OBJ_DIR)/$(LIST_UTILS_DIR) $(OBJ_DIR)/$(UTILS_DIR)
 	cc $(CFLAGS) -c $< -o $@
 
-$(NAME): $(HEADERS) $(OBJ) $(OBJ_UTILS)
-	cc $(CFLAGS) -o $(NAME) $(OBJ) $(OBJ_UTILS)
+$(NAME): $(HEADERS) $(OBJ) $(OBJ_UTILS) $(OBJ_LIST_U)
+	cc $(CFLAGS) -o $(NAME) $(OBJ) $(OBJ_UTILS) $(OBJ_LIST_U)
 
-$(NAME_B): $(HEADERS_BONUS) $(OBJ_B) $(OBJ_UTILS)
-	cc $(CFLAGS) -o $(NAME_B) $(OBJ_B) $(OBJ_UTILS)
+$(NAME_B): $(HEADERS_BONUS) $(OBJ_B) $(OBJ_UTILS) $(OBJ_LIST_U)
+	cc $(CFLAGS) -o $(NAME_B) $(OBJ_B) $(OBJ_UTILS) $(OBJ_LIST_U)
 
 clear: $(NAME) clean
 	clear
@@ -62,7 +74,7 @@ clear_bonus: $(NAME_B) clean
 	clear
 
 clean:
-	rm -f $(OBJ) $(OBJ_B) $(OBJ_UTILS)
+	rm -f $(OBJ) $(OBJ_B) $(OBJ_UTILS) $(OBJ_LIST_U)
 
 fclean: clean
 	rm -f $(NAME) $(NAME_B)

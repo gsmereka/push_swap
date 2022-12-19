@@ -6,11 +6,11 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 12:16:31 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/17 19:06:04 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/19 18:00:22 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/utils.h"
+#include "../headers/push_swap.h"
 
 static void	swap_two_first_nodes(t_list *old_stack, t_swap *new_stack);
 static void	set_prev_pointers_on_new_nodes(t_swap *new_stack);
