@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 11:02:22 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/17 18:16:15 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/28 20:50:07 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 typedef struct s_list
 {
 	int				nmb;
+	char			*binary_nmb;
 	struct s_list	*next;
 	struct s_list	*prev;
 }	t_list;

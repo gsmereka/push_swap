@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/14 23:03:02 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/21 14:34:17 by gsmereka         ###   ########.fr       */
+/*   Created: 2022/12/28 21:04:43 by gsmereka          #+#    #+#             */
+/*   Updated: 2022/12/28 21:41:22 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char *argv[])
 	initialize(argc, &data);
 	set_numbers(argv, &data);
 	set_stack(&data);
-	test_program(argc, &data);
+	// test_program(argc, &data);
 	finalize(&data);
 }
 
