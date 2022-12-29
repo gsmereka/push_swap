@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 21:36:06 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/28 21:48:38 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/28 21:56:04 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,13 @@ static size_t	ft_calculate_size(unsigned long long n);
 
 void	set_binary_values(t_list *stack)
 {
-	while (stack->next)
+	while (stack)
 	{
 		stack->binary_nmb = int_to_binary_char(stack->nmb);
 		stack = stack->next;
 	}
 }
+
 static size_t	ft_calculate_size(unsigned long long n)
 {
 	size_t	i;
@@ -30,7 +31,7 @@ static size_t	ft_calculate_size(unsigned long long n)
 	i = 0;
 	while (n != 0)
 	{
-		n = n / 16;
+		n = n / 2;
 		i++;
 	}
 	return (i);
@@ -50,11 +51,11 @@ static char	*int_to_binary_char(int nmb)
 	str[size] = '\0';
 	while (size > 0)
 	{
-		if (nmb % 16 > 9)
-			str[size - 1] = (nmb % 16) + 'a' - 10;
+		if (nmb % 2)
+			str[size - 1] = '1';
 		else
-			str[size - 1] = (nmb % 16) + '0';
-		nmb = nmb / 16;
+			str[size - 1] = '0';
+		nmb = nmb / 2;
 		size--;
 	}
 	return (str);
