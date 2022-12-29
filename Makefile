@@ -6,7 +6,7 @@
 #    By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 18:51:25 by gsmereka          #+#    #+#              #
-#    Updated: 2022/12/29 17:22:41 by gsmereka         ###   ########.fr        #
+#    Updated: 2022/12/29 17:44:59 by gsmereka         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ UTILS_DIR		=	utils
 LIST_UTILS_DIR	=	list_utils
 
 SRC				=	push_swap.c check_args.c set_numbers.c \
-					set_binary_values.c \
+					set_binary_values.c init_sort.c sort_small_list.c sort_big_list.c\
 					finalize.c initialize.c set_stack.c \
 
 SRC_B			=	

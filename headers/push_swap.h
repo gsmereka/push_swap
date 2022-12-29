@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 23:03:35 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/28 21:46:29 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/29 17:44:08 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,14 @@ void	set_binary_values(t_list *stack);
 // initialize
 int		initialize(int argc, t_data *data);
 
-// execute
+// init_sort
+int		init_sort(t_data *data);
+
+// sort_small_list
+int		sort_small_list(t_data *data);
+
+// sort_big_list
+int		sort_big_list(t_data *data);
 
 // finalize
 void	exit_error(int error_type, t_data *data);
