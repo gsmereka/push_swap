@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 21:04:43 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/28 21:41:22 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/28 21:49:50 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ int	main(int argc, char *argv[])
 	initialize(argc, &data);
 	set_numbers(argv, &data);
 	set_stack(&data);
-	// test_program(argc, &data);
+	set_binary_values(data.stack_a);
+	test_program(argc, &data);
 	finalize(&data);
 }
 
@@ -39,11 +40,11 @@ void	print_numbers(int argc, t_data *data)
 		node_a = ft_list_at(data->stack_a, i);
 		node_b = ft_list_at(data->stack_b, i);
 		if (node_a)
-			ft_printf("%d ", node_a->nmb);
+			ft_printf("%s ", node_a->binary_nmb);
 		else
 			ft_printf("  ");
 		if (node_b)
-			ft_printf("%d ", node_b->nmb);
+			ft_printf("%s ", node_b->binary_nmb);
 		ft_printf("\n");
 		i++;
 	}

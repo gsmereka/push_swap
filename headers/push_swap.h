@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 23:03:35 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/19 20:08:07 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/28 21:46:29 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,11 @@ void	check_args(int argc);
 // set_numbers
 void	set_numbers(char **argv, t_data *data);
 
-// set_numbers
+// set_stack
 void	set_stack(t_data *data);
+
+// set_binary_values
+void	set_binary_values(t_list *stack);
 
 // initialize
 int		initialize(int argc, t_data *data);
