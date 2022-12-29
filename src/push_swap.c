@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 21:04:43 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/29 18:00:02 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/29 18:08:48 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	main(int argc, char *argv[])
 	initialize(argc, &data);
 	set_numbers(argv, &data);
 	set_stack(&data);
-	// set_binary_values(data.stack_a);
 	init_sort(&data);
 	test_program(argc, &data);
 	finalize(&data);
