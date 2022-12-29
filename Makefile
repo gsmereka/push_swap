@@ -6,7 +6,7 @@
 #    By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 18:51:25 by gsmereka          #+#    #+#              #
-#    Updated: 2022/12/28 21:47:58 by gsmereka         ###   ########.fr        #
+#    Updated: 2022/12/29 17:22:41 by gsmereka         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,7 @@ clear_bonus: $(NAME_B) clean
 	clear
 
 clean:
-	rm -f $(OBJ) $(OBJ_B) $(OBJ_UTILS) $(OBJ_LIST_U)
+	rm -rf $(OBJ) $(OBJ_B) $(OBJ_UTILS) $(OBJ_LIST_U) $(OBJ_DIR)
 
 fclean: clean
 	rm -f $(NAME) $(NAME_B)
