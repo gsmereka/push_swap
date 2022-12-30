@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 21:36:06 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/30 14:10:20 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/30 14:13:07 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,12 @@ static size_t	ft_calculate_size(unsigned long long n);
 
 void	set_binary_values(t_list *stack, t_data *data)
 {
-	int	i;
-
-	i = 0;
 	while (stack)
 	{
 		stack->binary_nmb = int_to_binary_char(stack->simplified_nmb);
-		if (i == 2)
-		{
-			free (stack->binary_nmb);
-			stack->binary_nmb = NULL;
-			ft_printf("teste aqui\n");
-		}
 		if (!stack->binary_nmb)
 			exit_error(12, data);
 		stack = stack->next;
-		i++;
 	}
 }
 
