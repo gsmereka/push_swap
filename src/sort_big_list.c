@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/30 16:35:12 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/30 17:15:11 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,27 @@ int	sort_big_list(t_data *data)
 			less_value_digit_pos = ft_strlen(data->stack_a->binary_nmb);
 			less_value_digit_pos = less_value_digit_pos - digit_pos;
 			if (less_value_digit_pos < 0)
+			{
 				ft_push('a', data);
+				ft_printf("pa\n");
+			}
 			else if (data->stack_a->binary_nmb[less_value_digit_pos] == '0')
+			{
 				ft_push('a', data);
+				ft_printf("pa\n");
+			}
 			else
+			{
 				ft_rotate('a', data);
+				ft_printf("ra\n");
+			}
 			i++;
 		}
 		while (data->stack_b)
+		{
 			ft_push('b', data);
+			ft_printf("pb\n");
+		}
 		digit_pos++;
 	}
 	return (0);
