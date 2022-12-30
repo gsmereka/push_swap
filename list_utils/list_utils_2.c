@@ -6,17 +6,18 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 16:29:17 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/19 18:00:22 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/30 13:31:16 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
-void	ft_list_clear(t_list *begin_list)
+void	ft_list_clear(t_list *begin_list, void (*free_function)(void *))
 {
 	if (begin_list != NULL)
 	{
-		ft_list_clear(begin_list->next);
+		ft_list_clear(begin_list->next, free_function);
+		free_function(begin_list);
 		free(begin_list);
 	}
 }

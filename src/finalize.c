@@ -13,6 +13,7 @@
 #include "../headers/push_swap.h"
 
 static void	free_program_memory(t_data *data);
+static void	free_list_content(void *pointer);
 
 void	exit_error(int error_type, t_data *data)
 {
@@ -27,9 +28,18 @@ void	finalize(t_data *data)
 	exit(0);
 }
 
+static void	free_list_content(void *pointer)
+{
+	t_list	*list;
+
+	list = (t_list *)pointer;
+	if (list->binary_nmb)
+		free (list->binary_nmb);
+}
+
 static void	free_program_memory(t_data *data)
 {
-	ft_list_clear(data->stack_a);
-	ft_list_clear(data->stack_b);
+	ft_list_clear(data->stack_a, free_list_content);
+	ft_list_clear(data->stack_b, free_list_content);
 	free(data->user_args);
 }

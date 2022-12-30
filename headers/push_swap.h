@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 23:03:35 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/29 17:44:08 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/30 13:27:17 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ t_list	*ft_list_last(t_list *begin_list);
 void	ft_list_push_back(t_list **begin_list, int nmb);
 
 // list_utils_2
-void	ft_list_clear(t_list *begin_list);
+void	ft_list_clear(t_list *begin_list, void (*fre_function)(void *));
 t_list	*ft_list_at(t_list *begin_list, unsigned int index);
 void	ft_list_reverse(t_list **begin_list);
 
