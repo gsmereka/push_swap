@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 21:04:43 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/30 13:53:36 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/30 15:18:07 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int argc, char *argv[])
 	set_numbers(argv, &data);
 	set_stack(&data);
 	init_sort(&data);
-	test_program(argc, &data);
+	// test_program(argc, &data);
 	print_simplified_numbers(argc, &data);
 	finalize(&data);
 }
