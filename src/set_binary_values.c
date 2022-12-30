@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 21:36:06 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/30 16:03:43 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/30 16:37:16 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,8 @@ static char	*int_to_binary_char(int nmb)
 	size_t	size;
 
 	if (nmb == 0)
-		return (ft_strdup("0000000"));
-	size = ft_calculate_size(nmb);
-	size = 7;
+		return (ft_strdup("0"));
+	size = ft_calculate_size(nmb) + 1;
 	str = (char *)malloc((size + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
