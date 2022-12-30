@@ -6,14 +6,14 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/30 18:45:03 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/30 20:12:39 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
 void	print_numbers(t_data *data);
-void	print_simplified_numbers(t_data *data);
+static void	print_simplified_numbers(t_data *data);
 void	test_program(t_data *data);
 
 int	sort_small_list(t_data *data)
@@ -24,7 +24,7 @@ int	sort_small_list(t_data *data)
 	return (0);
 }
 
-void	print_simplified_numbers(t_data *data)
+static void	print_simplified_numbers(t_data *data)
 {
 	t_list	*node_a;
 	int		i;

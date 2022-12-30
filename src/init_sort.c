@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 22:17:43 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/30 17:59:58 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/30 20:13:13 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,19 @@
 static void	simplify_numbers(t_data *data);
 static int	stack_a_is_sorted(t_data *data);
 
+static void	print_simplified_numbers(t_data *data);
+
 int	init_sort(t_data *data)
 {
 	if (stack_a_is_sorted(data))
 		return (0);
 	simplify_numbers(data);
 	set_binary_values(data->stack_a, data);
-	if (data->max_stack_size <= 5)
+	if (data->max_stack_size <= 0)
 		sort_small_list(data);
-	if (data->max_stack_size > 5)
+	if (data->max_stack_size > 0)
 		sort_big_list(data);
+	// print_simplified_numbers(data);
 	return (0);
 }
 
@@ -61,5 +64,26 @@ static void	simplify_numbers(t_data *data)
 		}
 		node->simplified_nmb = value;
 		node = node->next;
+	}
+}
+
+static void	print_simplified_numbers(t_data *data)
+{
+	t_list	*node_a;
+	int		i;
+
+	i = 0;
+	ft_printf("Valor simplificado   binario  Numero passado\n");
+	while (i < data->max_stack_size)
+	{
+		node_a = ft_list_at(data->stack_a, i);
+		if (node_a)
+		{
+			ft_printf("       %d ", node_a->simplified_nmb);
+			ft_printf("             %s ", node_a->binary_nmb);
+			ft_printf("           %d ", node_a->nmb);
+			ft_printf("\n");
+		}
+		i++;
 	}
 }
