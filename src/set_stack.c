@@ -6,11 +6,13 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 21:27:29 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/16 11:27:19 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/30 14:11:08 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
+
+static void	init_stack_variables(t_list *node);
 
 void	set_stack(t_data *data)
 {
@@ -21,5 +23,15 @@ void	set_stack(t_data *data)
 	{
 		ft_list_push_back(&data->stack_a, data->user_args[i]);
 		i++;
+	}
+	init_stack_variables(data->stack_a);
+}
+
+static void	init_stack_variables(t_list *node)
+{
+	if (node)
+	{
+		init_stack_variables(node->next);
+		node->binary_nmb = NULL;
 	}
 }

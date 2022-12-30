@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 00:06:29 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/30 14:05:02 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/30 14:10:02 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ t_list	*ft_create_elem(int nmb)
 	new_node->nmb = nmb;
 	new_node->prev = NULL;
 	new_node->next = NULL;
-	new_node->binary_nmb = NULL;
 	return (new_node);
 }
 
