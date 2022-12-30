@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 22:17:43 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/30 11:32:53 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/30 11:39:04 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,20 +47,20 @@ static void	simplify_numbers(t_data *data)
 {
 	t_list	*node;
 	t_list	*another_node;
-	int		index;
+	int		value;
 
 	node = data->stack_a;
 	while (node)
 	{
-		index = 0;
+		value = 0;
 		another_node = data->stack_a;
 		while (another_node)
 		{
 			if (node->nmb > another_node->nmb)
-				index++;
+				value++;
 			another_node = another_node->next;
 		}
-		node->simplified_nmb = index;
+		node->simplified_nmb = value;
 		node = node->next;
 	}
 }
