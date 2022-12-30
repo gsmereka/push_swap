@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 21:04:43 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/30 11:43:02 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/30 13:36:01 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	print_simplified_numbers(int argc, t_data *data)
 	int		i;
 
 	i = 0;
-	ft_printf("Valor simplificado   Numero passado\n");
+	ft_printf("Valor simplificado   binario  Numero passado\n");
 	while (i < argc - 1)
 	{
 		node_a = ft_list_at(data->stack_a, i);
@@ -45,7 +45,8 @@ void	print_simplified_numbers(int argc, t_data *data)
 		if (node_a)
 		{
 			ft_printf("       %d ", node_a->simplified_nmb);
-			ft_printf("                  %d ", node_a->nmb);
+			ft_printf("             %s ", node_a->binary_nmb);
+			ft_printf("           %d ", node_a->nmb);
 			ft_printf("\n");
 		}
 		i++;
