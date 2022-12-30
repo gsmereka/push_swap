@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 22:57:58 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/21 18:01:13 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/30 13:12:18 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,8 @@ static int	compare_absolute_values(char *nbr_copy, char *original_nbr)
 {
 	int	diff;
 
-	if ((*original_nbr == '+' || (*original_nbr >= '0'
-				&& *original_nbr <= '9')) && *nbr_copy == '-')
+	if ((*original_nbr != '-') && *nbr_copy == '-')
 		return (-1);
-	if (*nbr_copy == '-')
-		nbr_copy++;
 	while ((*original_nbr >= '\t' && *original_nbr <= '\r')
 		|| *original_nbr == ' ')
 		original_nbr++;
@@ -93,6 +90,8 @@ static int	compare_absolute_values(char *nbr_copy, char *original_nbr)
 		original_nbr++;
 	while (*original_nbr == '0' && *original_nbr + 1 != '\0')
 		original_nbr++;
+	if (*nbr_copy == '-')
+		nbr_copy++;
 	diff = ft_strncmp(nbr_copy, original_nbr,
 			ft_strlen(original_nbr));
 	return (diff);
