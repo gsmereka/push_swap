@@ -6,13 +6,13 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 21:36:06 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/28 22:13:11 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/30 11:37:25 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
-static char	*int_to_binary_char(int nmb);
+static char		*int_to_binary_char(int nmb);
 static size_t	ft_calculate_size(unsigned long long n);
 
 void	set_binary_values(t_list *stack)

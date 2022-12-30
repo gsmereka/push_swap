@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 22:17:43 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/29 18:16:53 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/30 11:32:53 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	init_sort(t_data *data)
 	if (data->max_stack_size > 5)
 	{
 		simplify_numbers(data);
-		sort_big_list(data);
+		// sort_big_list(data);
 	}
 	return (0);
 }
@@ -45,5 +45,22 @@ static int	stack_a_is_sorted(t_data *data)
 
 static void	simplify_numbers(t_data *data)
 {
-	ft_printf("Tested\n");
+	t_list	*node;
+	t_list	*another_node;
+	int		index;
+
+	node = data->stack_a;
+	while (node)
+	{
+		index = 0;
+		another_node = data->stack_a;
+		while (another_node)
+		{
+			if (node->nmb > another_node->nmb)
+				index++;
+			another_node = another_node->next;
+		}
+		node->simplified_nmb = index;
+		node = node->next;
+	}
 }
