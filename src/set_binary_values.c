@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 21:36:06 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/30 13:35:31 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/30 13:56:36 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 static char		*int_to_binary_char(int nmb);
 static size_t	ft_calculate_size(unsigned long long n);
 
-void	set_binary_values(t_list *stack)
+void	set_binary_values(t_list *stack, t_data *data)
 {
 	while (stack)
 	{
 		stack->binary_nmb = int_to_binary_char(stack->simplified_nmb);
+		if (!stack->binary_nmb)
+			exit_error(12, data);
 		stack = stack->next;
 	}
 }
@@ -44,7 +46,7 @@ static char	*int_to_binary_char(int nmb)
 
 	if (nmb == 0)
 		return (ft_strdup("0000"));
-	// size = ft_calculate_size(nmb);
+	size = ft_calculate_size(nmb);
 	size = 4;
 	str = (char *)malloc((size + 1) * sizeof(char));
 	if (!str)
