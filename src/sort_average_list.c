@@ -6,35 +6,32 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 20:24:51 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 20:36:06 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
-static int	get_last_nmb(t_data *data);
-static void	merge_stacks(t_data *data);
+static void	sort_stack_b(t_data *data);
+static void	pull_stack_b(t_data *data);
+static int	last_nmb(t_data *data);
 static void	print_sorting_rules(char *rule, t_data *data);
-static void	sort_and_check_sorting_rules(int smaller_nmb, t_data *data);
 
 void	sort_average_list(t_data *data)
 {
-	int		smaller_nmb;
-
-	smaller_nmb = 0;
-	sort_and_check_sorting_rules(smaller_nmb, data);
-	merge_stacks(data);
+	sort_stack_b(data);
+	pull_stack_b(data);
 }
 
-static void	sort_and_check_sorting_rules(int smaller_nmb, t_data *data)
+static void	sort_stack_b(t_data *data)
 {
 	int	first_nmb;
-	int	last_nmb;
+	int	smaller_nmb;
 
+	smaller_nmb = 0;
 	while (!stack_b_is_sorted(data))
 	{
 		first_nmb = data->stack_a->simplified_nmb;
-		last_nmb = get_last_nmb(data);
 		if (first_nmb == smaller_nmb)
 		{
 			ft_push('b', data);
@@ -42,7 +39,7 @@ static void	sort_and_check_sorting_rules(int smaller_nmb, t_data *data)
 			data->stack_a_size--;
 			smaller_nmb++;
 		}
-		else if (last_nmb == smaller_nmb)
+		else if (last_nmb(data) == smaller_nmb)
 		{
 			ft_reverse_rotate('a', data);
 			print_sorting_rules("rra", data);
@@ -69,7 +66,7 @@ static void	print_sorting_rules(char *rule, t_data *data)
 	}
 }
 
-static void	merge_stacks(t_data *data)
+static void	pull_stack_b(t_data *data)
 {
 	while (data->stack_b)
 	{
@@ -81,7 +78,7 @@ static void	merge_stacks(t_data *data)
 	}
 }
 
-static int	get_last_nmb(t_data *data)
+static int	last_nmb(t_data *data)
 {
 	t_list	*last_node;
 	int		last_nmb;
