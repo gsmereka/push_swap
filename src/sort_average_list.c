@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 19:43:03 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 19:46:03 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	sort_average_list(t_data *data)
 	sort_and_check_sorting_rules(smaller_nmb, first_nmb, last_nmb, data);
 	merge_stacks(data);
 }
-
 
 static int	sort_and_check_sorting_rules(int smaller_nmb,
 				int first_nmb, int last_nmb, t_data *data)
