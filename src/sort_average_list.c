@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 17:03:48 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 17:17:17 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	sort_average_list(t_data *data)
 		else
 		{
 			ft_rotate('a', data);
-			print_necessary_pushes(2, data);
+			print_necessary_pushes(1, data);
 			ft_printf("ra\n");
 		}
 		if (stack_a_is_sorted(data))
@@ -57,14 +57,6 @@ int	sort_average_list(t_data *data)
 
 static void	print_necessary_pushes(int rules, t_data *data)
 {
-	if (rules == 2)
-	{
-		while (data->stack_b_size != 0)
-		{
-			ft_printf("pb\n");
-			data->stack_b_size--;
-		}
-	}
 	if (rules == 1)
 	{
 		while (data->stack_b_size != 0)
@@ -74,9 +66,7 @@ static void	print_necessary_pushes(int rules, t_data *data)
 		}
 	}
 	if (rules == 3)
-	{
 		ft_printf("pa\n");
-	}
 }
 
 static int	stack_a_is_sorted(t_data *data)
