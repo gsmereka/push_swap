@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 21:27:29 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/30 14:11:08 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 16:16:08 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	set_stack(t_data *data)
 	int	i;
 
 	i = 0;
-	while (i < data->max_stack_size)
+	while (i < data->stack_a_size)
 	{
 		ft_list_push_back(&data->stack_a, data->user_args[i]);
 		i++;

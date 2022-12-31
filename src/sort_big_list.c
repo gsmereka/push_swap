@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 15:27:55 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 16:16:28 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ static void	push_or_rotate_stack_a(int digit_pos, t_data *data)
 	int	i;
 
 	i = 0;
-	data->pa_count = 0;
-	while (i < data->max_stack_size)
+	data->stack_b_size = 0;
+	while (i < data->stack_a_size)
 	{
 		less_value_digit_pos = ft_strlen(data->stack_a->binary_nmb);
 		less_value_digit_pos = less_value_digit_pos - digit_pos;
@@ -66,7 +66,7 @@ static void	push_or_rotate_stack_a(int digit_pos, t_data *data)
 			|| data->stack_a->binary_nmb[less_value_digit_pos] == '0')
 		{
 			ft_push('b', data);
-			data->pa_count++;
+			data->stack_b_size++;
 		}
 		else
 		{
@@ -82,10 +82,10 @@ static void	push_entire_stack_b(t_data *data)
 	while (data->stack_b)
 	{
 		ft_push('a', data);
-		if (!data->pa_count)
+		if (!data->stack_b_size)
 			print_stack_rules('b', data);
 		else
-			data->pa_count--;
+			data->stack_b_size--;
 	}
 }
 
@@ -93,10 +93,10 @@ static void	print_stack_rules(int stack_rules, t_data *data)
 {
 	if (stack_rules == 'a')
 	{
-		while (data->pa_count != 0)
+		while (data->stack_b_size != 0)
 		{
 			ft_printf("pb\n");
-			data->pa_count--;
+			data->stack_b_size--;
 		}
 		ft_printf("ra\n");
 	}

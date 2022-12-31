@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 16:13:01 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 16:16:28 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,18 @@ int	sort_average_list(t_data *data)
 	int		first_nmb;
 
 	smaller_nmb = 0;
-	data->pa_count = 0;
+	data->stack_b_size = 0;
 	while (!stack_b_is_sorted(data))
 	{
 		first_nmb = data->stack_a->simplified_nmb;
 		last_nmb = (ft_list_at(data->stack_a,
-					data->max_stack_size - 1))->simplified_nmb;
+					data->stack_a_size - 1))->simplified_nmb;
 		if (first_nmb == smaller_nmb)
 		{
 			ft_push('b', data);
-			data->pa_count++;
+			data->stack_b_size++;
 			smaller_nmb++;
-			data->max_stack_size--;
+			data->stack_a_size--;
 		}
 		else if (last_nmb == smaller_nmb)
 		{
@@ -58,19 +58,19 @@ static void	print_rules(int rules, t_data *data)
 {
 	if (rules == 2)
 	{
-		while (data->pa_count != 0)
+		while (data->stack_b_size != 0)
 		{
 			ft_printf("pb\n");
-			data->pa_count--;
+			data->stack_b_size--;
 		}
 		ft_printf("ra\n");
 	}
 	if (rules == 1)
 	{
-		while (data->pa_count != 0)
+		while (data->stack_b_size != 0)
 		{
 			ft_printf("pb\n");
-			data->pa_count--;
+			data->stack_b_size--;
 		}
 		ft_printf("rra\n");
 	}
@@ -121,9 +121,9 @@ static void	push_entire_stack_b(t_data *data)
 	while (data->stack_b)
 	{
 		ft_push('a', data);
-		if (!data->pa_count)
+		if (!data->stack_b_size)
 			print_rules(3, data);
 		else
-			data->pa_count--;
+			data->stack_b_size--;
 	}
 }
