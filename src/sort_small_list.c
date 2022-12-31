@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 20:22:43 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 20:39:42 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,13 @@ void	sort_small_list(t_data *data)
 {
 	while (!stack_a_is_sorted(data))
 	{
-		if (is_previous_nmb_ok(data))
-		{
-			ft_rotate('a', data);
-			ft_printf("ra\n");
-		}
-		else
+		if (!is_previous_nmb_ok(data))
 		{
 			ft_swap('a', data);
 			ft_printf("sa\n");
-			if (stack_a_is_sorted(data))
-				break ;
-			ft_rotate('a', data);
-			ft_printf("ra\n");
 		}
+		ft_rotate('a', data);
+		ft_printf("ra\n");
 	}
 }
 

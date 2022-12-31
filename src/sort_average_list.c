@@ -6,24 +6,24 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 20:36:06 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 20:38:31 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
-static void	sort_stack_b(t_data *data);
+static void	reverse_sort_stack_b(t_data *data);
 static void	pull_stack_b(t_data *data);
 static int	last_nmb(t_data *data);
 static void	print_sorting_rules(char *rule, t_data *data);
 
 void	sort_average_list(t_data *data)
 {
-	sort_stack_b(data);
+	reverse_sort_stack_b(data);
 	pull_stack_b(data);
 }
 
-static void	sort_stack_b(t_data *data)
+static void	reverse_sort_stack_b(t_data *data)
 {
 	int	first_nmb;
 	int	smaller_nmb;
