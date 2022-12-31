@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/30 21:33:06 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 15:27:55 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static void	push_or_rotate_stack_a(int digit_pos, t_data *data)
 		if (less_value_digit_pos < 0
 			|| data->stack_a->binary_nmb[less_value_digit_pos] == '0')
 		{
-			ft_push('a', data);
+			ft_push('b', data);
 			data->pa_count++;
 		}
 		else
@@ -81,7 +81,7 @@ static void	push_entire_stack_b(t_data *data)
 {
 	while (data->stack_b)
 	{
-		ft_push('b', data);
+		ft_push('a', data);
 		if (!data->pa_count)
 			print_stack_rules('b', data);
 		else
@@ -95,11 +95,11 @@ static void	print_stack_rules(int stack_rules, t_data *data)
 	{
 		while (data->pa_count != 0)
 		{
-			ft_printf("pa\n");
+			ft_printf("pb\n");
 			data->pa_count--;
 		}
 		ft_printf("ra\n");
 	}
 	if (stack_rules == 'b')
-		ft_printf("pb\n");
+		ft_printf("pa\n");
 }
