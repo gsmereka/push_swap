@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 16:01:00 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 16:08:32 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static int	stack_b_is_sorted(t_data *data);
 static int	stack_a_is_sorted(t_data *data);
 static void	print_rules(int rules, t_data *data);
+static void	push_entire_stack_b(t_data *data);
 
 int	sort_average_list(t_data *data)
 {
@@ -24,10 +25,11 @@ int	sort_average_list(t_data *data)
 
 	smaller_nmb = 0;
 	data->pa_count = 0;
-	while(!stack_b_is_sorted(data))
+	while (!stack_b_is_sorted(data))
 	{
 		first_nmb = data->stack_a->simplified_nmb;
-		last_nmb = (ft_list_at(data->stack_a, data->max_stack_size - 1))->simplified_nmb;
+		last_nmb = (ft_list_at(data->stack_a,
+					data->max_stack_size - 1))->simplified_nmb;
 		if (first_nmb == smaller_nmb)
 		{
 			ft_push('b', data);
@@ -45,58 +47,36 @@ int	sort_average_list(t_data *data)
 			ft_rotate('a', data);
 			print_rules(2, data);
 		}
-		if (stack_a_is_sorted(data))
-			break ;
+		// if (stack_a_is_sorted(data))
+		// 	break ;
 	}
-	while(data->stack_b)
-	{
-		ft_push('a', data);
-		data->max_stack_size++;
-		if (!data->pa_count)
-			print_rules(3, data);
-		else
-			data->pa_count--;
-	}
-	// print_simplified_numbers(data);
+	push_entire_stack_b(data);
 	return (0);
 }
 
 static void	print_rules(int rules, t_data *data)
 {
-	int ok;
-
-	ok = 0;
 	if (rules == 2)
 	{
 		while (data->pa_count != 0)
 		{
 			ft_printf("pb\n");
-			if (ok)
-				print_simplified_numbers(data);
 			data->pa_count--;
 		}
 		ft_printf("ra\n");
-		if (ok)
-			print_simplified_numbers(data);
 	}
 	if (rules == 1)
 	{
 		while (data->pa_count != 0)
 		{
 			ft_printf("pb\n");
-			if (ok)
-				print_simplified_numbers(data);
 			data->pa_count--;
 		}
 		ft_printf("rra\n");
-		if (ok)
-			print_simplified_numbers(data);
 	}
 	if (rules == 3)
 	{
 		ft_printf("pa\n");
-		if (ok)
-			print_simplified_numbers(data);
 	}
 }
 
@@ -134,4 +114,16 @@ static int	stack_b_is_sorted(t_data *data)
 		node = node->next;
 	}
 	return (1);
+}
+
+static void	push_entire_stack_b(t_data *data)
+{
+	while (data->stack_b)
+	{
+		ft_push('a', data);
+		if (!data->pa_count)
+			print_rules('b', data);
+		else
+			data->pa_count--;
+	}
 }
