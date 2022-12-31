@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 16:16:28 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 16:26:39 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	stack_b_is_sorted(t_data *data);
 static int	stack_a_is_sorted(t_data *data);
-static void	print_rules(int rules, t_data *data);
+static void	print_necessary_pushes(int rules, t_data *data);
 static void	push_entire_stack_b(t_data *data);
 
 int	sort_average_list(t_data *data)
@@ -23,8 +23,8 @@ int	sort_average_list(t_data *data)
 	int		last_nmb;
 	int		first_nmb;
 
-	smaller_nmb = 0;
 	data->stack_b_size = 0;
+	smaller_nmb = 0;
 	while (!stack_b_is_sorted(data))
 	{
 		first_nmb = data->stack_a->simplified_nmb;
@@ -34,18 +34,20 @@ int	sort_average_list(t_data *data)
 		{
 			ft_push('b', data);
 			data->stack_b_size++;
-			smaller_nmb++;
 			data->stack_a_size--;
+			smaller_nmb++;
 		}
 		else if (last_nmb == smaller_nmb)
 		{
 			ft_reverse_rotate('a', data);
-			print_rules(1, data);
+			print_necessary_pushes(1, data);
+			ft_printf("rra\n");
 		}
 		else
 		{
 			ft_rotate('a', data);
-			print_rules(2, data);
+			print_necessary_pushes(2, data);
+			ft_printf("ra\n");
 		}
 		if (stack_a_is_sorted(data))
 			break ;
@@ -54,7 +56,7 @@ int	sort_average_list(t_data *data)
 	return (0);
 }
 
-static void	print_rules(int rules, t_data *data)
+static void	print_necessary_pushes(int rules, t_data *data)
 {
 	if (rules == 2)
 	{
@@ -63,7 +65,6 @@ static void	print_rules(int rules, t_data *data)
 			ft_printf("pb\n");
 			data->stack_b_size--;
 		}
-		ft_printf("ra\n");
 	}
 	if (rules == 1)
 	{
@@ -72,7 +73,6 @@ static void	print_rules(int rules, t_data *data)
 			ft_printf("pb\n");
 			data->stack_b_size--;
 		}
-		ft_printf("rra\n");
 	}
 	if (rules == 3)
 	{
@@ -122,7 +122,7 @@ static void	push_entire_stack_b(t_data *data)
 	{
 		ft_push('a', data);
 		if (!data->stack_b_size)
-			print_rules(3, data);
+			print_necessary_pushes(3, data);
 		else
 			data->stack_b_size--;
 	}
