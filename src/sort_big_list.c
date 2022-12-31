@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/30 20:05:26 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/30 20:57:42 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ static void	split_nodes_by_digit_value(int digit_pos, t_data *data)
 		{
 			ft_push('a', data);
 			pa_count++;
-			// ft_printf("pa\n");
 		}
 		else
 		{
