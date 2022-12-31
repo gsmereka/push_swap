@@ -6,29 +6,15 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 17:15:57 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 18:13:22 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 19:42:40 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
-void	print_sort_rules(char *rule, t_data *data)
-{
-	if (ft_strncmp(rule, "ra", 2) == 0)
-	{
-		print_necessary_pushes(1, data);
-		ft_printf("ra\n");
-	}
-	if (ft_strncmp(rule, "rra", 3) == 0)
-	{
-		print_necessary_pushes(1, data);
-		ft_printf("rra\n");
-	}
-}
-
 void	print_necessary_pushes(int rules, t_data *data)
 {
-	if (rules == 1)
+	if (rules == 'a')
 	{
 		while (data->stack_b_size != 0)
 		{
@@ -36,8 +22,44 @@ void	print_necessary_pushes(int rules, t_data *data)
 			data->stack_b_size--;
 		}
 	}
-	if (rules == 3)
+	if (rules == 'b')
 	{
 		ft_printf("pa\n");
 	}
+}
+
+int	stack_a_is_sorted(t_data *data)
+{
+	t_list	*node;
+
+	if (!data->stack_a)
+		return (0);
+	if (data->stack_b)
+		return (0);
+	node = data->stack_a;
+	while (node->next)
+	{
+		if (node->nmb > node->next->nmb)
+			return (0);
+		node = node->next;
+	}
+	return (1);
+}
+
+int	stack_b_is_sorted(t_data *data)
+{
+	t_list	*node;
+
+	if (data->stack_b == NULL)
+		return (0);
+	if (data->stack_a != NULL)
+		return (0);
+	node = data->stack_b;
+	while (node->next)
+	{
+		if (node->nmb < node->next->nmb)
+			return (0);
+		node = node->next;
+	}
+	return (1);
 }

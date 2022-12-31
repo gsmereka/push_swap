@@ -6,15 +6,14 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 18:38:51 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 19:43:03 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
-static int	stack_b_is_sorted(t_data *data);
-static int	stack_a_is_sorted(t_data *data);
 static void	merge_stacks(t_data *data);
+static void	print_sort_rules(char *rule, t_data *data);
 static int	sort_and_check_sorting_rules(int smaller_nmb,
 				int first_nmb, int last_nmb, t_data *data);
 
@@ -30,6 +29,7 @@ void	sort_average_list(t_data *data)
 	sort_and_check_sorting_rules(smaller_nmb, first_nmb, last_nmb, data);
 	merge_stacks(data);
 }
+
 
 static int	sort_and_check_sorting_rules(int smaller_nmb,
 				int first_nmb, int last_nmb, t_data *data)
@@ -60,40 +60,18 @@ static int	sort_and_check_sorting_rules(int smaller_nmb,
 	return (0);
 }
 
-static int	stack_a_is_sorted(t_data *data)
+static void	print_sort_rules(char *rule, t_data *data)
 {
-	t_list	*node;
-
-	if (!data->stack_a)
-		return (0);
-	if (data->stack_b)
-		return (0);
-	node = data->stack_a;
-	while (node->next)
+	if (ft_strncmp(rule, "ra", 2) == 0)
 	{
-		if (node->nmb > node->next->nmb)
-			return (0);
-		node = node->next;
+		print_necessary_pushes('a', data);
+		ft_printf("ra\n");
 	}
-	return (1);
-}
-
-static int	stack_b_is_sorted(t_data *data)
-{
-	t_list	*node;
-
-	if (data->stack_b == NULL)
-		return (0);
-	if (data->stack_a != NULL)
-		return (0);
-	node = data->stack_b;
-	while (node->next)
+	if (ft_strncmp(rule, "rra", 3) == 0)
 	{
-		if (node->nmb < node->next->nmb)
-			return (0);
-		node = node->next;
+		print_necessary_pushes('a', data);
+		ft_printf("rra\n");
 	}
-	return (1);
 }
 
 static void	merge_stacks(t_data *data)
@@ -102,7 +80,7 @@ static void	merge_stacks(t_data *data)
 	{
 		ft_push('a', data);
 		if (!data->stack_b_size)
-			print_necessary_pushes(3, data);
+			print_necessary_pushes('b', data);
 		else
 			data->stack_b_size--;
 	}

@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 23:03:35 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 18:13:36 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 19:43:18 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,9 @@ void	set_binary_values(t_list *stack, t_data *data);
 int		initialize(int argc, t_data *data);
 
 // sort_utils
-void	print_sort_rules(char *rule, t_data *data);
 void	print_necessary_pushes(int rules, t_data *data);
+int		stack_a_is_sorted(t_data *data);
+int		stack_b_is_sorted(t_data *data);
 
 // init_sort
 int		init_sort(t_data *data);

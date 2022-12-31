@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 19:32:13 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 19:36:24 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 static int	max_binary_size(t_data *data);
 static void	radix_sort_split(int digit_value, t_data *data);
 static void	radix_sort_merge(t_data *data);
-static void	print_nescessary_pushes(int stack_rules, t_data *data);
 
 int	sort_big_list(t_data *data)
 {
@@ -70,7 +69,7 @@ static void	radix_sort_split(int digit_pos, t_data *data)
 		else
 		{
 			ft_rotate('a', data);
-			print_nescessary_pushes('a', data);
+			print_necessary_pushes('a', data);
 			ft_printf("ra\n");
 		}
 		i++;
@@ -83,22 +82,8 @@ static void	radix_sort_merge(t_data *data)
 	{
 		ft_push('a', data);
 		if (!data->stack_b_size)
-			print_nescessary_pushes('b', data);
+			print_necessary_pushes('b', data);
 		else
 			data->stack_b_size--;
 	}
-}
-
-static void	print_nescessary_pushes(int stack_rules, t_data *data)
-{
-	if (stack_rules == 'a')
-	{
-		while (data->stack_b_size != 0)
-		{
-			ft_printf("pb\n");
-			data->stack_b_size--;
-		}
-	}
-	if (stack_rules == 'b')
-		ft_printf("pa\n");
 }
