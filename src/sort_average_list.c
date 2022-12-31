@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 14:37:33 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 14:56:11 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int	sort_average_list(t_data *data)
 
 	small_nmb = 0;
 	data->pa_count = 0;
-	// test_program(data);
-	// finalize(data);
+	test_program(data);
+	finalize(data);
 	// print_simplified_numbers(data);
 	while(!stack_b_is_sorted(data))
 	{
@@ -56,12 +56,12 @@ int	sort_average_list(t_data *data)
 	while(data->stack_b)
 	{
 		ft_push('b', data);
+		data->max_stack_size++;
 		if (!data->pa_count)
 			print_stack_rules('b', data);
 		else
 			data->pa_count--;
 	}
-	data->max_stack_size = 5;
 	// print_simplified_numbers(data);
 	return (0);
 }
