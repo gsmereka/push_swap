@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/30 22:51:09 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 00:03:52 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,25 @@
 void	print_numbers(t_data *data);
 static void	print_simplified_numbers(t_data *data);
 void	test_program(t_data *data);
+static int	stack_a_is_sorted(t_data *data);
 
 int	sort_small_list(t_data *data)
 {
-	test_program(data);
-	print_simplified_numbers(data);
+	int	i;
+
+	i = 0;
+	while(stack_a_is_sorted(data))
+	{
+		if (data->stack_a->simplified_nmb < data->stack_a->next->simplified_nmb - 1)
+		{
+			ft_swap('a', data);
+			ft_printf("sa\n");
+		}
+		ft_rotate('a', data);
+		ft_printf("ra\n");
+	}
+	// test_program(data);
+	// print_simplified_numbers(data);
 	finalize(data);
 	return (0);
 }
@@ -43,6 +57,20 @@ static void	print_simplified_numbers(t_data *data)
 		}
 		i++;
 	}
+}
+
+static int	stack_a_is_sorted(t_data *data)
+{
+	t_list	*node;
+
+	node = data->stack_a;
+	while (node->next)
+	{
+		if (node->nmb > node->next->nmb)
+			return (1);
+		node = node->next;
+	}
+	return (0);
 }
 
 void	print_numbers(t_data *data)
