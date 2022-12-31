@@ -6,14 +6,13 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 22:17:43 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 19:52:22 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 20:08:33 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
 static void	simplify_numbers(t_data *data);
-static int	stack_is_sorted(t_data *data);
 
 int	init_sort(t_data *data)
 {

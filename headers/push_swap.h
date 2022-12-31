@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 23:03:35 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 19:43:18 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 20:07:46 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,10 @@ int		stack_b_is_sorted(t_data *data);
 // init_sort
 int		init_sort(t_data *data);
 
-// sort_average_list
+// sort_list
+void	sort_small_list(t_data *data);
 void	sort_average_list(t_data *data);
-
-// sort_small_list
-int		sort_small_list(t_data *data);
-
-// sort_big_list
-int		sort_big_list(t_data *data);
+void	sort_big_list(t_data *data);
 
 // finalize
 void	exit_error(int error_type, t_data *data);

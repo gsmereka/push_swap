@@ -6,7 +6,7 @@
 #    By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 18:51:25 by gsmereka          #+#    #+#              #
-#    Updated: 2022/12/31 17:15:31 by gsmereka         ###   ########.fr        #
+#    Updated: 2022/12/31 20:08:13 by gsmereka         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ HEADERS			=	./headers/push_swap.h ./headers/objects.h ./headers/utils.h
 
 HEADERS_BONUS	=	./headers/push_swap_bonus.h ./headers/objects_bonus.h ./headers/utils.h 
 
-# CFLAGS			=	-Wall -Wextra -Werror
-CFLAGS			=
+CFLAGS			=	-Wall -Wextra -Werror
+# CFLAGS			=
 
 OBJ_DIR			=	./obj
 

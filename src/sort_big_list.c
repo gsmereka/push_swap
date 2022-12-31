@@ -6,17 +6,16 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 19:57:20 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 20:08:44 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
-static int	max_binary_size(t_data *data);
 static void	radix_sort_split(int digit_value, t_data *data);
 static void	radix_sort_merge(t_data *data);
 
-int	sort_big_list(t_data *data)
+void	sort_big_list(t_data *data)
 {
 	int	digit_pos;
 
@@ -28,7 +27,6 @@ int	sort_big_list(t_data *data)
 		radix_sort_merge(data);
 		digit_pos++;
 	}
-	return (0);
 }
 
 static void	radix_sort_split(int digit_pos, t_data *data)
