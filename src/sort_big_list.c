@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 19:36:24 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 19:53:11 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	sort_big_list(t_data *data)
 	int	max_size;
 
 	digit_pos = 1;
+	set_binary_values(data->stack_a, data);
 	max_size = max_binary_size(data);
 	while (digit_pos < max_size)
 	{

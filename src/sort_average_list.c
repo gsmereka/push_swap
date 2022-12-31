@@ -6,14 +6,14 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 19:46:03 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 19:49:31 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
 static void	merge_stacks(t_data *data);
-static void	print_sort_rules(char *rule, t_data *data);
+static void	print_sorting_rules(char *rule, t_data *data);
 static int	sort_and_check_sorting_rules(int smaller_nmb,
 				int first_nmb, int last_nmb, t_data *data);
 
@@ -48,18 +48,18 @@ static int	sort_and_check_sorting_rules(int smaller_nmb,
 		else if (last_nmb == smaller_nmb)
 		{
 			ft_reverse_rotate('a', data);
-			print_sort_rules("rra", data);
+			print_sorting_rules("rra", data);
 		}
 		else
 		{
 			ft_rotate('a', data);
-			print_sort_rules("ra", data);
+			print_sorting_rules("ra", data);
 		}
 	}
 	return (0);
 }
 
-static void	print_sort_rules(char *rule, t_data *data)
+static void	print_sorting_rules(char *rule, t_data *data)
 {
 	if (ft_strncmp(rule, "ra", 2) == 0)
 	{

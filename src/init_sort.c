@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 22:17:43 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 19:40:58 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 19:52:22 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,7 @@ int	init_sort(t_data *data)
 	else if (data->stack_a_size > 3 && data->stack_a_size <= 5)
 		sort_average_list(data);
 	else if (data->stack_a_size > 5)
-	{
-		set_binary_values(data->stack_a, data);
 		sort_big_list(data);
-	}
 	return (0);
 }
 

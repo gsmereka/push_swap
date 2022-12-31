@@ -6,13 +6,11 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 11:54:12 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 19:54:29 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
-
-static int	stack_a_is_sorted(t_data *data);
 
 int	sort_small_list(t_data *data)
 {
@@ -39,18 +37,4 @@ int	sort_small_list(t_data *data)
 		}
 	}
 	return (0);
-}
-
-static int	stack_a_is_sorted(t_data *data)
-{
-	t_list	*node;
-
-	node = data->stack_a;
-	while (node->next)
-	{
-		if (node->nmb > node->next->nmb)
-			return (0);
-		node = node->next;
-	}
-	return (1);
 }
