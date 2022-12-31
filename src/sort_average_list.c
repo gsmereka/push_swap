@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 14:01:54 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 14:08:49 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ int	sort_average_list(t_data *data)
 
 	// colocar todos em ordem reversa no b e dar pb em tudo.
 	i = 0;
-	test_program(data);
+	// test_program(data);
 	// ft_printf("pa\n");
 	// ft_printf("rra\n");
 	// ft_printf("pb\n");
 	// last_node = ft_list_at(first_node, data->max_stack_size - 1);
 	// ft_printf("%d\n", last_node->nmb);
-	print_simplified_numbers(data);
+	// print_simplified_numbers(data);
 	// finalize(data);
 	small_nmb = 0;
 	data->pa_count = 0;
@@ -60,7 +60,7 @@ int	sort_average_list(t_data *data)
 		else
 		{
 			ft_rotate('a', data);
-			ft_printf("ra\n");
+			// ft_printf("ra\n");
 			print_stack_rules('a', data);
 			// print_simplified_numbers(data);
 		}
@@ -83,10 +83,16 @@ int	sort_average_list(t_data *data)
 	return (0);
 }
 
+// ra
+// ra
+// ra
+// ra
+// ra
 // pa
-// rra
+// ra
+// ra
+// ra
 // pa
-// rra
 // pa
 // rra
 // pb
