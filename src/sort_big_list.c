@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 19:55:41 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 19:57:20 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,9 @@ static void	radix_sort_merge(t_data *data);
 int	sort_big_list(t_data *data)
 {
 	int	digit_pos;
-	int	max_size;
 
 	digit_pos = 1;
 	set_binary_values(data->stack_a, data);
-	max_size = max_binary_size(data);
 	while (!stack_a_is_sorted(data))
 	{
 		radix_sort_split(digit_pos, data);
@@ -31,24 +29,6 @@ int	sort_big_list(t_data *data)
 		digit_pos++;
 	}
 	return (0);
-}
-
-static int	max_binary_size(t_data *data)
-{
-	t_list	*big_node;
-	t_list	*node;
-	int		max_size;
-
-	big_node = data->stack_a;
-	node = data->stack_a;
-	while (node)
-	{
-		if (node->simplified_nmb > big_node->simplified_nmb)
-			big_node = node;
-		node = node->next;
-	}
-	max_size = ft_strlen(big_node->binary_nmb);
-	return (max_size);
 }
 
 static void	radix_sort_split(int digit_pos, t_data *data)
