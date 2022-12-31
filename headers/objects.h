@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 11:02:22 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/29 17:58:25 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/30 21:14:15 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct s_data
 {
 	int				*user_args;
 	int				max_stack_size;
+	int				pa_count;
 	struct s_list	*stack_a;
 	struct s_list	*stack_b;
 }	t_data;
