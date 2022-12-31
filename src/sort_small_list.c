@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 01:30:23 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 02:01:22 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ static int	stack_a_is_sorted(t_data *data);
 
 int	sort_small_list(t_data *data)
 {
-	t_list	*first_node;
-	t_list	*last_node;
+	int		last_nmb;
+	int		first_nmb;
 	int		i;
 
 	i = 0;
@@ -29,29 +29,29 @@ int	sort_small_list(t_data *data)
 	// ft_printf("%d\n", last_node->nmb);
 	// finalize(data);
 	// print_simplified_numbers(data);
-	while(stack_a_is_sorted(data))
-	// while (i < 10)
+	while(!stack_a_is_sorted(data))
+	// while (i < 15)
 	{
-		first_node = data->stack_a;
-		last_node = ft_list_at(first_node, data->max_stack_size - 1);
-		if (first_node->simplified_nmb == 0 && last_node->simplified_nmb != 4)
+		// ft_printf("OPERAÇÃO\n");
+		first_nmb = data->stack_a->simplified_nmb;
+		last_nmb = (ft_list_at(data->stack_a, data->max_stack_size - 1))->simplified_nmb;
+		if ((first_nmb == 0 && last_nmb == 4) || (first_nmb - 1 == last_nmb))
+		{
+			ft_rotate('a', data);
+			ft_printf("ra\n");
+			// print_simplified_numbers(data);
+		}
+		else
 		{
 			ft_swap('a', data);
 			ft_printf("sa\n");
 			// print_simplified_numbers(data);
-		}
-		else if ((last_node->simplified_nmb != first_node->simplified_nmb - 1)
-				&& (first_node->simplified_nmb != 0 && last_node->simplified_nmb != 4))
-		{
-			ft_swap('a', data);
-			ft_printf("sa\n");
+			if (stack_a_is_sorted(data))
+				break ;
+			ft_rotate('a', data);
+			ft_printf("ra\n");
 			// print_simplified_numbers(data);
 		}
-		if (!stack_a_is_sorted(data))
-			break ;
-		ft_rotate('a', data);
-		ft_printf("ra\n");
-		// print_simplified_numbers(data);
 		i++;
 	}
 	// test_program(data);
@@ -89,10 +89,10 @@ static int	stack_a_is_sorted(t_data *data)
 	while (node->next)
 	{
 		if (node->nmb > node->next->nmb)
-			return (1);
+			return (0);
 		node = node->next;
 	}
-	return (0);
+	return (1);
 }
 
 void	print_numbers(t_data *data)
