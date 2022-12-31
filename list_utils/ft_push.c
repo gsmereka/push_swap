@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:47:43 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/19 18:00:24 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 15:02:28 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ static t_list	*set_pulled_node(t_list **stack_1, t_list **stack_2);
 
 int	ft_push(char stack_c, t_data *data)
 {
-	if (stack_c == 'a')
-		push_stack(&data->stack_a, &data->stack_b);
 	if (stack_c == 'b')
+		push_stack(&data->stack_a, &data->stack_b);
+	if (stack_c == 'a')
 		push_stack(&data->stack_b, &data->stack_a);
 	return (0);
 }

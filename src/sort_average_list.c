@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 14:56:11 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 15:16:58 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int	sort_average_list(t_data *data)
 
 	small_nmb = 0;
 	data->pa_count = 0;
-	test_program(data);
-	finalize(data);
+	// test_program(data);
+	// finalize(data);
 	// print_simplified_numbers(data);
 	while(!stack_b_is_sorted(data))
 	{
@@ -35,7 +35,7 @@ int	sort_average_list(t_data *data)
 		last_nmb = (ft_list_at(data->stack_a, data->max_stack_size - 1))->simplified_nmb;
 		if (first_nmb == small_nmb)
 		{
-			ft_push('a', data);
+			ft_push('b', data);
 			data->pa_count++;
 			small_nmb++;
 			data->max_stack_size--;
@@ -55,7 +55,7 @@ int	sort_average_list(t_data *data)
 	}
 	while(data->stack_b)
 	{
-		ft_push('b', data);
+		ft_push('a', data);
 		data->max_stack_size++;
 		if (!data->pa_count)
 			print_stack_rules('b', data);
@@ -86,7 +86,7 @@ static void	print_stack_rules(int stack_rules, t_data *data)
 	{
 		while (data->pa_count != 0)
 		{
-			ft_printf("pa\n");
+			ft_printf("pb\n");
 			if (ok)
 				print_simplified_numbers(data);
 			data->pa_count--;
@@ -99,7 +99,7 @@ static void	print_stack_rules(int stack_rules, t_data *data)
 	{
 		while (data->pa_count != 0)
 		{
-			ft_printf("pa\n");
+			ft_printf("pb\n");
 			if (ok)
 				print_simplified_numbers(data);
 			data->pa_count--;
@@ -110,7 +110,7 @@ static void	print_stack_rules(int stack_rules, t_data *data)
 	}
 	if (stack_rules == 'b')
 	{
-		ft_printf("pb\n");
+		ft_printf("pa\n");
 		if (ok)
 			print_simplified_numbers(data);
 	}
