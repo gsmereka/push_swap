@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/30 20:57:42 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/30 21:09:32 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,41 +52,23 @@ static int	max_binary_size(t_data *data)
 
 static void	split_nodes_by_digit_value(int digit_pos, t_data *data)
 {
-	int	pa_count;
 	int	less_value_digit_pos;
 	int	i;
 
 	i = 0;
-	pa_count = 0;
 	while (i < data->max_stack_size)
 	{
 		less_value_digit_pos = ft_strlen(data->stack_a->binary_nmb);
 		less_value_digit_pos = less_value_digit_pos - digit_pos;
 		if (less_value_digit_pos < 0
 			|| data->stack_a->binary_nmb[less_value_digit_pos] == '0')
-		{
 			ft_push('a', data);
-			pa_count++;
-		}
 		else
 		{
 			ft_rotate('a', data);
-			while (pa_count)
-			{
-				ft_printf("pa\n");
-				pa_count--;
-			}
 			ft_printf("ra\n");
 		}
 		i++;
-	}
-	while (data->stack_b)
-	{
-		ft_push('b', data);
-		if (pa_count == 0)
-			ft_printf("pb\n");
-		else
-			pa_count--;
 	}
 }
 
