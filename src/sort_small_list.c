@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 00:03:52 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 01:30:23 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,40 @@ static int	stack_a_is_sorted(t_data *data);
 
 int	sort_small_list(t_data *data)
 {
-	int	i;
+	t_list	*first_node;
+	t_list	*last_node;
+	int		i;
 
 	i = 0;
+	// test_program(data);
+	// last_node = ft_list_at(first_node, data->max_stack_size - 1);
+	// ft_printf("%d\n", last_node->nmb);
+	// finalize(data);
+	// print_simplified_numbers(data);
 	while(stack_a_is_sorted(data))
+	// while (i < 10)
 	{
-		if (data->stack_a->simplified_nmb < data->stack_a->next->simplified_nmb - 1)
+		first_node = data->stack_a;
+		last_node = ft_list_at(first_node, data->max_stack_size - 1);
+		if (first_node->simplified_nmb == 0 && last_node->simplified_nmb != 4)
 		{
 			ft_swap('a', data);
 			ft_printf("sa\n");
+			// print_simplified_numbers(data);
 		}
+		else if ((last_node->simplified_nmb != first_node->simplified_nmb - 1)
+				&& (first_node->simplified_nmb != 0 && last_node->simplified_nmb != 4))
+		{
+			ft_swap('a', data);
+			ft_printf("sa\n");
+			// print_simplified_numbers(data);
+		}
+		if (!stack_a_is_sorted(data))
+			break ;
 		ft_rotate('a', data);
 		ft_printf("ra\n");
+		// print_simplified_numbers(data);
+		i++;
 	}
 	// test_program(data);
 	// print_simplified_numbers(data);
