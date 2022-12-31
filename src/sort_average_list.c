@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 18:31:12 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 18:38:51 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 static int	stack_b_is_sorted(t_data *data);
 static int	stack_a_is_sorted(t_data *data);
 static void	merge_stacks(t_data *data);
+static int	sort_and_check_sorting_rules(int smaller_nmb,
+				int first_nmb, int last_nmb, t_data *data);
 
 void	sort_average_list(t_data *data)
 {
@@ -23,6 +25,15 @@ void	sort_average_list(t_data *data)
 	int		first_nmb;
 
 	smaller_nmb = 0;
+	last_nmb = 0;
+	first_nmb = 0;
+	sort_and_check_sorting_rules(smaller_nmb, first_nmb, last_nmb, data);
+	merge_stacks(data);
+}
+
+static int	sort_and_check_sorting_rules(int smaller_nmb,
+				int first_nmb, int last_nmb, t_data *data)
+{
 	while (!stack_b_is_sorted(data))
 	{
 		first_nmb = data->stack_a->simplified_nmb;
@@ -46,7 +57,7 @@ void	sort_average_list(t_data *data)
 			print_sort_rules("ra", data);
 		}
 	}
-	merge_stacks(data);
+	return (0);
 }
 
 static int	stack_a_is_sorted(t_data *data)
