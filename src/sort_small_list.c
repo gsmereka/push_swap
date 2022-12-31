@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/30 20:12:39 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/30 22:51:09 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,11 @@ void	print_numbers(t_data *data)
 		node_a = ft_list_at(data->stack_a, i);
 		node_b = ft_list_at(data->stack_b, i);
 		if (node_a)
-			ft_printf("%s ", node_a->binary_nmb);
+			ft_printf("%d ", node_a->simplified_nmb);
 		else
 			ft_printf("  ");
 		if (node_b)
-			ft_printf("%s ", node_b->binary_nmb);
+			ft_printf("%d ", node_b->simplified_nmb);
 		ft_printf("\n");
 		i++;
 	}
