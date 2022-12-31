@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 23:03:35 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 11:49:14 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 16:00:28 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@
 # include <fcntl.h>
 # include <errno.h>
 # include <stdio.h>
+
+// tests
+void	test_program(t_data *data);
+void	print_numbers(t_data *data);
+void	print_simplified_numbers(t_data *data);
 
 // check_args
 void	check_args(int argc);
