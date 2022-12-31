@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 22:57:58 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/30 16:33:27 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 20:46:13 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,7 @@ static int	arg_to_integer(char *arg, t_data *data)
 		i++;
 	}
 	if (arg[i] != '\0')
-	{
-		ft_printf("'%s' is not an integrer\n", arg);
 		exit_error(1, data);
-	}
 	return (save * sign);
 }
 
@@ -70,10 +67,7 @@ static int	check_integer_size(int nbr, char *original_nbr, t_data *data)
 	diff = compare_absolute_values(nbr_copy, original_nbr);
 	free(nbr_copy);
 	if (diff != 0)
-	{
-		ft_printf("Out of limit nbr: '%s'\n", original_nbr);
 		exit_error(1, data);
-	}
 	return (0);
 }
 
