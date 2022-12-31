@@ -6,7 +6,7 @@
 #    By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 18:51:25 by gsmereka          #+#    #+#              #
-#    Updated: 2022/12/31 15:57:52 by gsmereka         ###   ########.fr        #
+#    Updated: 2022/12/31 17:07:28 by gsmereka         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,6 +70,9 @@ $(NAME): $(HEADERS) $(OBJ) $(OBJ_UTILS) $(OBJ_LIST_U)
 $(NAME_B): $(HEADERS_BONUS) $(OBJ_B) $(OBJ_UTILS) $(OBJ_LIST_U)
 	cc $(CFLAGS) -o $(NAME_B) $(OBJ_B) $(OBJ_UTILS) $(OBJ_LIST_U)
 
+git: fclean
+	git add . && clear && git status
+
 clear: $(NAME) clean
 	clear
 
@@ -84,4 +87,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: bonus all clean fclean re clear clear_bonus .c.o
+.PHONY: bonus all clean fclean re clear clear_bonus .c.o git
