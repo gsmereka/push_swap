@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/30 21:09:32 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/30 21:12:39 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,10 @@ static void	split_nodes_by_digit_value(int digit_pos, t_data *data)
 		less_value_digit_pos = less_value_digit_pos - digit_pos;
 		if (less_value_digit_pos < 0
 			|| data->stack_a->binary_nmb[less_value_digit_pos] == '0')
+		{
 			ft_push('a', data);
+			ft_printf("pa\n");
+		}
 		else
 		{
 			ft_rotate('a', data);
