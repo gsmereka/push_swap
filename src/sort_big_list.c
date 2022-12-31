@@ -6,16 +6,16 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 16:16:28 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 16:58:54 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
 static int	max_binary_size(t_data *data);
-static void	push_or_rotate_stack_a(int digit_value, t_data *data);
-static void	push_entire_stack_b(t_data *data);
-static void	print_stack_rules(int stack_rules, t_data *data);
+static void	radix_sort_split(int digit_value, t_data *data);
+static void	radix_sort_merge(t_data *data);
+static void	print_sort_steps(int stack_rules, t_data *data);
 
 int	sort_big_list(t_data *data)
 {
@@ -26,8 +26,8 @@ int	sort_big_list(t_data *data)
 	max_size = max_binary_size(data);
 	while (digit_pos < max_size)
 	{
-		push_or_rotate_stack_a(digit_pos, data);
-		push_entire_stack_b(data);
+		radix_sort_split(digit_pos, data);
+		radix_sort_merge(data);
 		digit_pos++;
 	}
 	return (0);
@@ -51,7 +51,7 @@ static int	max_binary_size(t_data *data)
 	return (max_size);
 }
 
-static void	push_or_rotate_stack_a(int digit_pos, t_data *data)
+static void	radix_sort_split(int digit_pos, t_data *data)
 {
 	int	less_value_digit_pos;
 	int	i;
@@ -71,25 +71,25 @@ static void	push_or_rotate_stack_a(int digit_pos, t_data *data)
 		else
 		{
 			ft_rotate('a', data);
-			print_stack_rules('a', data);
+			print_sort_steps('a', data);
 		}
 		i++;
 	}
 }
 
-static void	push_entire_stack_b(t_data *data)
+static void	radix_sort_merge(t_data *data)
 {
 	while (data->stack_b)
 	{
 		ft_push('a', data);
 		if (!data->stack_b_size)
-			print_stack_rules('b', data);
+			print_sort_steps('b', data);
 		else
 			data->stack_b_size--;
 	}
 }
 
-static void	print_stack_rules(int stack_rules, t_data *data)
+static void	print_sort_steps(int stack_rules, t_data *data)
 {
 	if (stack_rules == 'a')
 	{
