@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 20:39:42 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 20:55:48 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,11 @@ void	sort_small_list(t_data *data)
 			ft_swap('a', data);
 			ft_printf("sa\n");
 		}
-		ft_rotate('a', data);
-		ft_printf("ra\n");
+		else
+		{
+			ft_rotate('a', data);
+			ft_printf("ra\n");
+		}
 	}
 }
 
