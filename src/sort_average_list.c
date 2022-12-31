@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 15:45:09 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 15:49:19 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ static void	print_numbers(t_data *data);
 static void	print_simplified_numbers(t_data *data);
 static void	test_program(t_data *data);
 static int	stack_b_is_sorted(t_data *data);
+static int	stack_a_is_sorted(t_data *data);
 static void	print_rules(int rules, t_data *data);
 
 int	sort_average_list(t_data *data)
@@ -50,6 +51,8 @@ int	sort_average_list(t_data *data)
 			ft_rotate('a', data);
 			print_rules(2, data);
 		}
+		if (stack_a_is_sorted(data))
+			break ;
 	}
 	while(data->stack_b)
 	{
@@ -63,17 +66,6 @@ int	sort_average_list(t_data *data)
 	// print_simplified_numbers(data);
 	return (0);
 }
-
-// ra
-// ra
-// pa
-// pa
-// rra
-// pa
-// rra
-// pb
-// pb
-// pb
 
 static void	print_rules(int rules, t_data *data)
 {
@@ -133,6 +125,23 @@ static void	print_simplified_numbers(t_data *data)
 		}
 		i++;
 	}
+}
+static int	stack_a_is_sorted(t_data *data)
+{
+	t_list	*node;
+
+	if (!data->stack_a)
+		return (0);
+	if (data->stack_b)
+		return (0);
+	node = data->stack_a;
+	while (node->next)
+	{
+		if (node->nmb > node->next->nmb)
+			return (0);
+		node = node->next;
+	}
+	return (1);
 }
 
 static int	stack_b_is_sorted(t_data *data)
