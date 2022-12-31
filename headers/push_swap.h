@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 23:03:35 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/30 13:57:10 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 11:49:14 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ int		initialize(int argc, t_data *data);
 
 // init_sort
 int		init_sort(t_data *data);
+
+// sort_average_list
+int		sort_average_list(t_data *data);
 
 // sort_small_list
 int		sort_small_list(t_data *data);
