@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 16:26:39 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 17:03:48 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	sort_average_list(t_data *data)
 	int		last_nmb;
 	int		first_nmb;
 
-	data->stack_b_size = 0;
 	smaller_nmb = 0;
 	while (!stack_b_is_sorted(data))
 	{

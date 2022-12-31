@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 16:58:54 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 17:03:38 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ static void	radix_sort_split(int digit_pos, t_data *data)
 	int	i;
 
 	i = 0;
-	data->stack_b_size = 0;
 	while (i < data->stack_a_size)
 	{
 		less_value_digit_pos = ft_strlen(data->stack_a->binary_nmb);
