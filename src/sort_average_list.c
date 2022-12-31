@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 12:18:57 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 12:34:05 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,36 +19,42 @@ static int	stack_a_is_sorted(t_data *data);
 
 int	sort_average_list(t_data *data)
 {
+	int		small_nmb;
 	int		last_nmb;
 	int		first_nmb;
 	int		i;
 
 	// colocar todos em ordem reversa no b e dar pb em tudo.
 	i = 0;
-	test_program(data);
+	// test_program(data);
 	// last_node = ft_list_at(first_node, data->max_stack_size - 1);
 	// ft_printf("%d\n", last_node->nmb);
-	finalize(data);
+	// finalize(data);
 	// print_simplified_numbers(data);
-	// while(!stack_a_is_sorted(data))
-	last_nmb = data->max_stack_size - 1;
-	while (i < 15)
+	small_nmb = 0;
+	while(!stack_a_is_sorted(data))
+	// while (i < 15)
 	{
+		if (data->stack_a == NULL)
+		{
+			while(data->stack_b)
+			{
+				ft_push('b', data);
+				ft_printf("pb\n");
+			}
+			break ;
+		}
 		first_nmb = data->stack_a->simplified_nmb;
 		// last_nmb = (ft_list_at(data->stack_a, data->max_stack_size - 1))->simplified_nmb;
-		if (first_nmb == last_nmb)
+		if (first_nmb == small_nmb)
 		{
 			ft_push('a', data);
 			ft_printf("pa\n");
+			small_nmb++;
 			// print_simplified_numbers(data);
 		}
 		else
 		{
-			ft_swap('a', data);
-			ft_printf("sa\n");
-			// print_simplified_numbers(data);
-			if (stack_a_is_sorted(data))
-				break ;
 			ft_rotate('a', data);
 			ft_printf("ra\n");
 			// print_simplified_numbers(data);
@@ -86,6 +92,8 @@ static int	stack_a_is_sorted(t_data *data)
 {
 	t_list	*node;
 
+	if (data->stack_b != NULL)
+		return (0);
 	node = data->stack_a;
 	while (node->next)
 	{
