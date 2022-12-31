@@ -6,38 +6,35 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 19:49:31 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 20:24:51 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
+static int	get_last_nmb(t_data *data);
 static void	merge_stacks(t_data *data);
 static void	print_sorting_rules(char *rule, t_data *data);
-static int	sort_and_check_sorting_rules(int smaller_nmb,
-				int first_nmb, int last_nmb, t_data *data);
+static void	sort_and_check_sorting_rules(int smaller_nmb, t_data *data);
 
 void	sort_average_list(t_data *data)
 {
 	int		smaller_nmb;
-	int		last_nmb;
-	int		first_nmb;
 
 	smaller_nmb = 0;
-	last_nmb = 0;
-	first_nmb = 0;
-	sort_and_check_sorting_rules(smaller_nmb, first_nmb, last_nmb, data);
+	sort_and_check_sorting_rules(smaller_nmb, data);
 	merge_stacks(data);
 }
 
-static int	sort_and_check_sorting_rules(int smaller_nmb,
-				int first_nmb, int last_nmb, t_data *data)
+static void	sort_and_check_sorting_rules(int smaller_nmb, t_data *data)
 {
+	int	first_nmb;
+	int	last_nmb;
+
 	while (!stack_b_is_sorted(data))
 	{
 		first_nmb = data->stack_a->simplified_nmb;
-		last_nmb = (ft_list_at(data->stack_a,
-					data->stack_a_size - 1))->simplified_nmb;
+		last_nmb = get_last_nmb(data);
 		if (first_nmb == smaller_nmb)
 		{
 			ft_push('b', data);
@@ -56,7 +53,6 @@ static int	sort_and_check_sorting_rules(int smaller_nmb,
 			print_sorting_rules("ra", data);
 		}
 	}
-	return (0);
 }
 
 static void	print_sorting_rules(char *rule, t_data *data)
@@ -83,4 +79,14 @@ static void	merge_stacks(t_data *data)
 		else
 			data->stack_b_size--;
 	}
+}
+
+static int	get_last_nmb(t_data *data)
+{
+	t_list	*last_node;
+	int		last_nmb;
+
+	last_node = ft_list_at(data->stack_a, data->stack_a_size - 1);
+	last_nmb = last_node->simplified_nmb;
+	return (last_nmb);
 }
