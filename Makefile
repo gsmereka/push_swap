@@ -6,7 +6,7 @@
 #    By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 18:51:25 by gsmereka          #+#    #+#              #
-#    Updated: 2022/12/31 21:07:09 by gsmereka         ###   ########.fr        #
+#    Updated: 2022/12/31 21:10:38 by gsmereka         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,6 @@ UTILS			=	ft_strchr.c ft_strdup.c ft_strjoin.c ft_strlen.c \
 					ft_strncmp.c ft_split.c ft_isdigit.c \
 					ft_printf.c ft_itoa.c ft_itohex.c ft_toupper.c \
 					ft_putchar_fd.c ft_putstr_fd.c ft_utoa.c \
-					get_next_line.c
 
 LIST_UTILS		=	ft_push.c ft_swap.c ft_reverse_rotate.c ft_rotate.c \
 					list_utils_1.c list_utils_2.c \

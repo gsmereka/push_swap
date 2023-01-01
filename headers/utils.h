@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 09:15:19 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/21 13:52:00 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 21:10:28 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,5 @@ char	*ft_utoa(unsigned int n);
 char	*ft_itohex(unsigned long long n);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
-
-char	*get_next_line(int fd, int stop);
 
 #endif
