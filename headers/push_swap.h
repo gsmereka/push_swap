@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 23:03:35 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 20:07:46 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 21:04:56 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,15 +58,13 @@ void	finalize(t_data *data);
 
 // list_utils_1
 t_list	*ft_create_elem(int nmb);
-void	ft_list_push_front(t_list **begin_list, int nmb);
-int		ft_list_size(t_list *begin_list);
-t_list	*ft_list_last(t_list *begin_list);
+void	ft_list_clear(t_list *begin_list, void (*fre_function)(void *));
 void	ft_list_push_back(t_list **begin_list, int nmb);
 
 // list_utils_2
-void	ft_list_clear(t_list *begin_list, void (*fre_function)(void *));
 t_list	*ft_list_at(t_list *begin_list, unsigned int index);
-void	ft_list_reverse(t_list **begin_list);
+int		ft_list_size(t_list *begin_list);
+t_list	*ft_list_last(t_list *begin_list);
 
 // swaps
 int		ft_swap(char stack_c, t_data *data);

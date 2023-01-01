@@ -6,20 +6,25 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 16:29:17 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/30 13:31:16 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/31 21:05:52 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
-void	ft_list_clear(t_list *begin_list, void (*free_function)(void *))
+int	ft_list_size(t_list *begin_list)
 {
-	if (begin_list != NULL)
+	int	size;
+
+	size = 1;
+	if (!begin_list)
+		return (-1);
+	while (begin_list->next != NULL)
 	{
-		ft_list_clear(begin_list->next, free_function);
-		free_function(begin_list);
-		free(begin_list);
+		size++;
+		begin_list = begin_list->next;
 	}
+	return (size);
 }
 
 t_list	*ft_list_at(t_list *begin_list, unsigned int index)
@@ -37,24 +42,16 @@ t_list	*ft_list_at(t_list *begin_list, unsigned int index)
 	return (begin_list);
 }
 
-void	ft_list_reverse(t_list **begin_list)
+t_list	*ft_list_last(t_list *begin_list)
 {
-	t_list	*new_list;
-	t_list	*save;
-	int		i;
-
-	if (*begin_list != NULL)
+	if (!begin_list)
+		return (NULL);
+	while (begin_list != NULL)
 	{
-		i = ft_list_size(*begin_list) - 2;
-		new_list = ft_list_last(*begin_list);
-		save = new_list;
-		while (i >= 0)
-		{
-			new_list->next = ft_list_at(*begin_list, i);
-			new_list = new_list->next;
-			i--;
-		}
-		new_list->next = NULL;
-		*begin_list = save;
+		if (begin_list->next != NULL)
+			begin_list = begin_list->next;
+		else
+			break ;
 	}
+	return (begin_list);
 }
