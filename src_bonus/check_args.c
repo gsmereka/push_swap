@@ -17,3 +17,4 @@ void	check_args(int argc)
 	if (argc <= 2)
 		exit(0);
 }
+ 
