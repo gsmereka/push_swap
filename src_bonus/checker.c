@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 12:26:17 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/02 14:05:05 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/02 19:04:40 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,55 +27,74 @@ int	main(int argc, char *argv[])
 	finalize(&data);
 }
 
+static void put_rule_in_data(void *rule, t_data *data)
+{
+	t_rule *new_rule;
+	t_rule *last_node;
+
+	new_rule = ft_calloc(1, sizeof(t_rule));
+	if (!new_rule)
+		return (NULL);
+	new_rule->instruction = rule;
+	new_rule->stack_a_size = data->stack_a_size;
+	new_rule->stack_b_size = data->stack_b_size;
+	new_rule->next = NULL;
+	last_node = ft_list_last(data->rules);
+	if (!last_node)
+		data->rules = new_rule;
+	else
+		last_node->next = new_rule;
+}
+
 void	get_instructions(t_data *data)
 {
 	int		i;
-	char	*str;
+	char	*rule;
 
 	i = 1;
 	while (i)
 	{
-		str = get_next_line_clean(0, 0);
-		if (!str)
+		rule = get_next_line_clean(0, 0);
+		if (!rule)
 			break ;
-		else if (ft_strncmp(str, "pa\n", 3) == 0)
+		else if (ft_strncmp(rule, "pa\n", 3) == 0)
 			ft_push('a', data);
-		else if (ft_strncmp(str, "pb\n", 3) == 0)
+		else if (ft_strncmp(rule, "pb\n", 3) == 0)
 			ft_push('b', data);
-		else if (ft_strncmp(str, "sa\n", 3) == 0)
+		else if (ft_strncmp(rule, "sa\n", 3) == 0)
 			ft_swap('a', data);
-		else if (ft_strncmp(str, "sb\n", 3) == 0)
+		else if (ft_strncmp(rule, "sb\n", 3) == 0)
 			ft_swap('b', data);
-		else if (ft_strncmp(str, "ss\n", 3) == 0)
+		else if (ft_strncmp(rule, "ss\n", 3) == 0)
 		{
 			ft_swap('a', data);
 			ft_swap('b', data);
 		}
-		else if (ft_strncmp(str, "rra\n", 4) == 0)
+		else if (ft_strncmp(rule, "rra\n", 4) == 0)
 			ft_reverse_rotate('a', data);
-		else if (ft_strncmp(str, "rrb\n", 4) == 0)
+		else if (ft_strncmp(rule, "rrb\n", 4) == 0)
 			ft_reverse_rotate('b', data);
-		else if (ft_strncmp(str, "rrr\n", 4) == 0)
+		else if (ft_strncmp(rule, "rrr\n", 4) == 0)
 		{
 			ft_reverse_rotate('a', data);
 			ft_reverse_rotate('b', data);
 		}
-		else if (ft_strncmp(str, "ra\n", 3) == 0)
+		else if (ft_strncmp(rule, "ra\n", 3) == 0)
 			ft_rotate('a', data);
-		else if (ft_strncmp(str, "rb\n", 3) == 0)
+		else if (ft_strncmp(rule, "rb\n", 3) == 0)
 			ft_rotate('b', data);
-		else if (ft_strncmp(str, "rr\n", 3) == 0)
+		else if (ft_strncmp(rule, "rr\n", 3) == 0)
 		{
 			ft_rotate('a', data);
 			ft_rotate('b', data);
 		}
 		else
 		{
-			free(str);
+			free(rule);
 			get_next_line_clean(0, 1);
 			exit_error(1, data);
 		}
-		free(str);
+		free(rule);
 	}
 	get_next_line_clean(0, 1);
 }
