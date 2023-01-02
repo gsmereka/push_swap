@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 12:26:17 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/02 13:48:43 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/02 14:04:03 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int	main(int argc, char *argv[])
 	initialize(argc, &data);
 	set_numbers(argv, &data);
 	set_stack(&data);
-	ft_printf("OK\n");
 	get_instructions(&data);
+	check_if_is_sorted(&data);
 	finalize(&data);
 }
 
@@ -37,7 +37,7 @@ void	get_instructions(t_data *data)
 	{
 		str = get_next_line_clean(0, 0);
 		if (!str)
-			finalize(data);
+			break ;
 		else if (ft_strncmp(str, "pa\n", 3) == 0)
 			ft_push('a', data);
 		else if (ft_strncmp(str, "pb\n", 3) == 0)
@@ -70,7 +70,11 @@ void	get_instructions(t_data *data)
 			ft_rotate('b', data);
 		}
 		else
-			ft_printf("KO\n");
+		{
+			free(str);
+			get_next_line_clean(0, 1);
+			exit_error(1, data);
+		}
 		free(str);
 	}
 	get_next_line_clean(0, 1);

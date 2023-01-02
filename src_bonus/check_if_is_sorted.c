@@ -6,13 +6,23 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 13:53:10 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/02 13:54:34 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/02 14:00:18 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/push_swap.h"
+#include "../headers/checker.h"
 
-int	stack_a_is_sorted(t_data *data)
+static int	stack_a_is_sorted(t_data *data);
+
+void	check_if_is_sorted(t_data *data)
+{
+	if (stack_a_is_sorted(data))
+		ft_printf("OK\n");
+	if (!stack_a_is_sorted(data))
+		ft_printf("KO\n");
+}
+
+static int	stack_a_is_sorted(t_data *data)
 {
 	t_list	*node;
 
