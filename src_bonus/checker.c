@@ -6,13 +6,13 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 12:26:17 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/02 12:48:36 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/02 13:10:23 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/checker.h"
 
-int	main(void)
+int	main(int argc, char *argv[])
 {
 	ft_printf("ok\n");
 }
