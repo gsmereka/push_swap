@@ -25,72 +25,72 @@ The push_swap program calculates and displays the smallest possible set of instr
 
 ## Examples:
 
-Init a and b:
-2
-1
-3
-6
-5
-8
-_ _
-a b
+Init a and b:  
+2  
+1  
+3  
+6  
+5  
+8  
+_ _  
+a b  
 
-Exec sa:
-1
-2
-3
-6
-5
-8
-_ _
-a b
+Exec sa:  
+1  
+2  
+3  
+6  
+5  
+8  
+_ _  
+a b  
 
-Exec pb pb pb:
-6 3
-5 2
-8 1
-_ _
-a b
+Exec pb pb pb:  
+6 3  
+5 2  
+8 1  
+_ _  
+a b  
 
-Exec ra rb (equiv. to rr):
-5 2
-8 1
-6 3
-_ _
-a b
+Exec ra rb (equiv. to rr):  
+5 2  
+8 1  
+6 3  
+_ _  
+a b  
 
-Exec rra rrb (equiv. to rrr):
-6 3
-5 2
-8 1
-_ _
-a b
+Exec rra rrb (equiv. to rrr):  
+6 3  
+5 2  
+8 1  
+_ _  
+a b  
 
-Exec sa:
-5 3
-6 2
-8 1
-_ _
-a b
+Exec sa:  
+5 3  
+6 2  
+8 1  
+_ _  
+a b  
 
-Exec pa pa pa:
-1
-2
-3
-5
-6
-8
-_ _
-a b
+Exec pa pa pa:  
+1  
+2  
+3  
+5  
+6  
+8  
+_ _  
+a b  
 
 ### In this example, the program's output would be:
-sa
-pb
-pb
-pb
-rr
-rrr
-sa
-pa
-pa
-pa
+sa  
+pb  
+pb  
+pb  
+rr  
+rrr  
+sa  
+pa    
+pa  
+pa  
