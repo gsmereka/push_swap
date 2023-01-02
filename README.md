@@ -85,7 +85,7 @@ a b
 
 In this example, the program's output would be:  
 
-sa 
+sa  
 pb  
 pb  
 pb  
