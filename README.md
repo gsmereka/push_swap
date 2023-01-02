@@ -83,8 +83,9 @@ Exec pa pa pa:
 _ _  
 a b  
 
-### In this example, the program's output would be:
-sa  
+In this example, the program's output would be:  
+
+sa 
 pb  
 pb  
 pb  
