@@ -6,13 +6,13 @@
 #    By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 18:51:25 by gsmereka          #+#    #+#              #
-#    Updated: 2023/01/02 13:16:36 by gsmereka         ###   ########.fr        #
+#    Updated: 2023/01/02 13:19:58 by gsmereka         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	push_swap 
 
-NAME_B			=	push_swap_bonus
+NAME_B			=	checker
 
 HEADERS			=	./headers/push_swap.h ./headers/objects.h ./headers/utils.h 
 
