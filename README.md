@@ -25,6 +25,8 @@ The push_swap program calculates and displays the smallest possible set of instr
 
 ## Examples:
 
+starting with: "~ ./push_swap 2 1 3 6 5 8"   
+
 Init a and b:  
 2  
 1  
