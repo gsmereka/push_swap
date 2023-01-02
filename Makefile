@@ -6,7 +6,7 @@
 #    By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 18:51:25 by gsmereka          #+#    #+#              #
-#    Updated: 2022/12/31 21:10:38 by gsmereka         ###   ########.fr        #
+#    Updated: 2023/01/02 12:50:42 by gsmereka         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME_B			=	push_swap_bonus
 
 HEADERS			=	./headers/push_swap.h ./headers/objects.h ./headers/utils.h 
 
-HEADERS_BONUS	=	./headers/push_swap_bonus.h ./headers/objects_bonus.h ./headers/utils.h 
+HEADERS_BONUS	=	./headers/checker.h ./headers/objects.h ./headers/utils.h 
 
 CFLAGS			=	-Wall -Wextra -Werror
 # CFLAGS			=
@@ -35,7 +35,7 @@ SRC				=	push_swap.c check_args.c set_numbers.c sort_utils.c\
 					set_binary_values.c init_sort.c sort_small_list.c sort_big_list.c\
 					sort_average_list.c finalize.c initialize.c set_stack.c \
 
-SRC_B			=	
+SRC_B			=	checker.c get_next_line_clean.c 
 
 UTILS			=	ft_strchr.c ft_strdup.c ft_strjoin.c ft_strlen.c \
 					ft_substr.c ft_calloc.c ft_strlcpy.c ft_bzero.c \
