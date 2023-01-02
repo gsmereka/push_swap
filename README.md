@@ -1,12 +1,12 @@
 # 42_push_swap
 
-The Push Swap project is a C language algorithm that organizes random integer numbers in ascending order. It uses two stacks called "a" and "b" and a set of instructions to manipulate these stacks.
+The Push Swap project utilizes some C language algorithms that organize random integer numbers in ascending order. It uses two stacks called "a" and "b" and a set of instructions to manipulate these stacks.
 
-## Goal
+## About the project
 
-The push_swap program calculates and displays the smallest possible set of instructions, using the available operations, to sort the numbers in stack "a" in ascending order. It handles positive and negative numbers and ensures that numbers are not repeated.
+The push_swap program calculates and displays the smallest possible set of instructions, using the available operations, to sort the numbers in stack "a" in ascending order. It handles positive and negative numbers and does not accept repeated numbers or arguments that do not represent integers.
 
-## Rules
+## How it works ?
 
 - Stack "a" starts with a random amount of numbers, while stack "b" starts empty.
 - The goal is to sort the numbers in stack "a" in ascending order.
