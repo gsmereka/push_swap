@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 12:26:17 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/02 19:04:40 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/02 20:08:35 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char *argv[])
 	finalize(&data);
 }
 
-static void put_rule_in_data(void *rule, t_data *data)
+static void create_new_rule(void *rule, t_data *data)
 {
 	t_rule *new_rule;
 	t_rule *last_node;
@@ -39,14 +39,33 @@ static void put_rule_in_data(void *rule, t_data *data)
 	new_rule->stack_a_size = data->stack_a_size;
 	new_rule->stack_b_size = data->stack_b_size;
 	new_rule->next = NULL;
-	last_node = ft_list_last(data->rules);
+	last_node = data->rules;
 	if (!last_node)
 		data->rules = new_rule;
 	else
+	{
+		while (last_node->next)
+			last_node = last_node->next;
 		last_node->next = new_rule;
+	}
 }
 
 void	get_instructions(t_data *data)
+{
+	int		i;
+	char	**operations;
+	char	*rule;
+
+	rule = get_next_line_clean(0, 0);
+	while (rule)
+	{
+
+		rule = get_next_line_clean(0, 0);
+	}
+	get_next_line_clean(0, 1);
+}
+
+void	print_instructions(t_data *data)
 {
 	int		i;
 	char	*rule;
