@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 12:26:17 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/02 21:57:53 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/02 22:13:20 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,46 +74,4 @@ int	get_instructions(t_data *data)
 	}
 	get_next_line_clean(0, 1);
 	return (0);
-}
-
-void	apply_instructions(t_data *data)
-{
-	t_rule	*rule;
-
-	rule = data->rules;
-	while (rule)
-	{
-		if (ft_strncmp(rule->instruction, "pa\n", 3) == 0)
-			ft_push('a', data);
-		else if (ft_strncmp(rule->instruction, "pb\n", 3) == 0)
-			ft_push('b', data);
-		else if (ft_strncmp(rule->instruction, "sa\n", 3) == 0)
-			ft_swap('a', data);
-		else if (ft_strncmp(rule->instruction, "sb\n", 3) == 0)
-			ft_swap('b', data);
-		else if (ft_strncmp(rule->instruction, "ss\n", 3) == 0)
-		{
-			ft_swap('a', data);
-			ft_swap('b', data);
-		}
-		else if (ft_strncmp(rule->instruction, "rra\n", 4) == 0)
-			ft_reverse_rotate('a', data);
-		else if (ft_strncmp(rule->instruction, "rrb\n", 4) == 0)
-			ft_reverse_rotate('b', data);
-		else if (ft_strncmp(rule->instruction, "rrr\n", 4) == 0)
-		{
-			ft_reverse_rotate('a', data);
-			ft_reverse_rotate('b', data);
-		}
-		else if (ft_strncmp(rule->instruction, "ra\n", 3) == 0)
-			ft_rotate('a', data);
-		else if (ft_strncmp(rule->instruction, "rb\n", 3) == 0)
-			ft_rotate('b', data);
-		else if (ft_strncmp(rule->instruction, "rr\n", 3) == 0)
-		{
-			ft_rotate('a', data);
-			ft_rotate('b', data);
-		}
-		rule = rule->next;
-	}
 }

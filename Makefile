@@ -6,7 +6,7 @@
 #    By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 18:51:25 by gsmereka          #+#    #+#              #
-#    Updated: 2023/01/02 13:53:54 by gsmereka         ###   ########.fr        #
+#    Updated: 2023/01/02 22:21:11 by gsmereka         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ SRC				=	push_swap.c check_args.c set_numbers.c sort_utils.c\
 					sort_average_list.c finalize.c initialize.c set_stack.c \
 
 SRC_B			=	check_args.c finalize.c initialize.c set_numbers.c \
-					set_stack.c check_if_is_sorted.c\
+					set_stack.c check_if_is_sorted.c apply_instructions.c\
 					checker.c get_next_line_clean.c \
 
 UTILS			=	ft_strchr.c ft_strdup.c ft_strjoin.c ft_strlen.c \

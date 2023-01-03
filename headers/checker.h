@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 12:22:00 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/02 13:57:57 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/02 22:13:42 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 # define BUFFER_SIZE 1
+
+// apply instructions
+void	apply_instructions(t_data *data);
 
 // check if is sorted
 void	check_if_is_sorted(t_data *data);
