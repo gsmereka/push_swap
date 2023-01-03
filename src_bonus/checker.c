@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 12:26:17 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/02 22:28:30 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/02 22:30:00 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	get_instructions(t_data *data)
 		{
 			if (!data->rules_catalog)
 				exit_error(1, data);
-			if (ft_strncmp(rule, data->rules_catalog[i], 3) == 0)
+			if (ft_strncmp(rule, data->rules_catalog[i], 4) == 0)
 				create_new_rule(rule, data);
 			i++;
 		}
