@@ -49,6 +49,17 @@ static void	free_rule_content(void *pointer)
 
 static void	free_program_memory(t_data *data)
 {
+	int	i;
+
+	i = 0;
+	while (i < 12)
+	{
+		if (data->rules_catalog)
+			free(data->rules_catalog[i]);
+		i++;
+	}
+	if (data->rules_catalog)
+		free(data->rules_catalog);
 	ft_list_clear(data->stack_a, free_list_content);
 	ft_list_clear(data->stack_b, free_list_content);
 	ft_rule_clear(data->rules, free_rule_content);
