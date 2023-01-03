@@ -6,11 +6,11 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 16:32:14 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/02 21:36:39 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/02 21:57:02 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/push_swap.h"
+#include "../headers/checker.h"
 
 static void	set_config(int argc, t_data *data);
 static void	set_memory(int argc, t_data *data);

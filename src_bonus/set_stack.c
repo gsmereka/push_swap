@@ -6,11 +6,11 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 21:27:29 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 20:53:11 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/02 21:57:12 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/push_swap.h"
+#include "../headers/checker.h"
 
 static void	init_stack_variables(t_list *node);
 static void	check_fail_at_alloc_stack(t_data *data);

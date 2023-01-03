@@ -10,11 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/push_swap.h"
+#include "../headers/checker.h"
 
 void	check_args(int argc)
 {
 	if (argc <= 2)
 		exit(0);
 }
- 

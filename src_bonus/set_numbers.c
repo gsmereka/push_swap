@@ -6,11 +6,11 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 22:57:58 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 20:46:13 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/02 21:57:07 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/push_swap.h"
+#include "../headers/checker.h"
 
 static int	arg_to_integer(char *arg, t_data *data);
 static int	check_integer_size(int nbr, char *original_nbr, t_data *data);

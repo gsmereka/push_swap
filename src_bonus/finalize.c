@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/push_swap.h"
+#include "../headers/checker.h"
 
 static void	free_program_memory(t_data *data);
 static void	free_list_content(void *pointer);
