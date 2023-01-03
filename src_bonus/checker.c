@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 12:26:17 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/02 22:54:32 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/02 22:58:05 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ static int	create_new_rule(void *rule, t_data *data)
 			last_node = last_node->next;
 		last_node->next = new_rule;
 	}
-	ft_printf("carlos\n");
 	return (0);
 }
 
@@ -59,23 +58,24 @@ int	get_instructions(t_data *data)
 	char	*rule;
 	int		i;
 
-	rule = get_next_line_clean(0, 0);
-	while (rule)
+	i = 0;
+	while (i >= 0)
 	{
 		i = 0;
+		rule = get_next_line_clean(0, 0);
+		if (!rule)
+			break ;
 		while (i < 12)
 		{
 			if (!data->rules_catalog[i])
 				exit_error(1, data);
-			if (ft_strncmp(rule, data->rules_catalog[i], 3) == 0)
+			if (ft_strncmp(rule, data->rules_catalog[i], 4) == 0)
 			{
 				create_new_rule(rule, data);
 				break ;
 			}
 			i++;
 		}
-		if (!rule)
-			break ;
 	}
 	get_next_line_clean(0, 1);
 	return (0);
