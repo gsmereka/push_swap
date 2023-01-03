@@ -6,13 +6,14 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 23:05:35 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/02 23:07:35 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/03 00:19:11 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/checker.h"
 
-static int	create_new_rule(void *rule, t_data *data);
+static int	add_rule_to_data(void *rule, t_data *data);
+static int	validate_rule(char **rule, t_data *data);
 
 int	get_instructions(t_data *data)
 {
@@ -26,23 +27,34 @@ int	get_instructions(t_data *data)
 		rule = get_next_line_clean(0, 0);
 		if (!rule)
 			break ;
-		while (i < 12)
-		{
-			if (!data->rules_catalog[i])
-				exit_error(1, data);
-			if (ft_strncmp(rule, data->rules_catalog[i], 4) == 0)
-			{
-				create_new_rule(rule, data);
-				break ;
-			}
-			i++;
-		}
+		validate_rule(&rule, data);
+		add_rule_to_data(rule, data);
 	}
 	get_next_line_clean(0, 1);
 	return (0);
 }
 
-static int	create_new_rule(void *rule, t_data *data)
+static int	validate_rule(char **rule, t_data *data)
+{
+	int	i;
+
+	i = 0;
+	while (i < 11)
+	{
+		if (ft_strncmp(*rule, data->rules_catalog[i], 4) == 0)
+		{
+			add_rule_to_data(*rule, data);
+			return (0);
+		}
+		i++;
+	}
+	free(*rule);
+	get_next_line_clean(0, 1);
+	exit_error(1, data);
+	return (-1);
+}
+
+static int	add_rule_to_data(void *rule, t_data *data)
 {
 	t_rule	*new_rule;
 	t_rule	*last_node;
