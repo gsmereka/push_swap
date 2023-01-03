@@ -14,6 +14,7 @@
 
 static void	free_program_memory(t_data *data);
 static void	free_list_content(void *pointer);
+static void	free_rule_content(void *pointer);
 
 void	exit_error(int error_type, t_data *data)
 {
@@ -37,9 +38,20 @@ static void	free_list_content(void *pointer)
 		free (list->binary_nmb);
 }
 
+static void	free_rule_content(void *pointer)
+{
+	t_rule	*rule;
+
+	rule = (t_rule *)pointer;
+	if (rule->instruction)
+		free(rule->instruction);
+}
+
+
 static void	free_program_memory(t_data *data)
 {
 	ft_list_clear(data->stack_a, free_list_content);
 	ft_list_clear(data->stack_b, free_list_content);
+	ft_rule_clear(data->rules, free_rule_content);
 	free(data->user_args);
 }

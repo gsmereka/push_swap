@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 12:22:00 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/02 22:13:42 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/02 22:27:27 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ char	*get_next_line_clean(int fd, int clean);
 // list_utils_1
 t_list	*ft_create_elem(int nmb);
 void	ft_list_clear(t_list *begin_list, void (*fre_function)(void *));
+void	ft_rule_clear(t_rule *begin_rule, void (*fre_function)(void *));
 void	ft_list_push_back(t_list **begin_list, int nmb);
 
 // list_utils_2

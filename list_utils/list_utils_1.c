@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 00:06:29 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/02 18:54:31 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/02 22:25:44 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,15 @@ void	ft_list_clear(t_list *begin_list, void (*free_function)(void *))
 		ft_list_clear(begin_list->next, free_function);
 		free_function(begin_list);
 		free(begin_list);
+	}
+}
+
+void	ft_rule_clear(t_rule *begin_rule, void (*free_function)(void *))
+{
+	if (begin_rule != NULL)
+	{
+		ft_rule_clear(begin_rule->next, free_function);
+		free_function(begin_rule);
+		free(begin_rule);
 	}
 }
