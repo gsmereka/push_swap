@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 11:02:22 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/02 20:09:26 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/02 21:35:59 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct s_data
 	int				*user_args;
 	int				stack_a_size;
 	int				stack_b_size;
+	int				rules_amount;
 	char			**rules_catalog;
 	struct s_rule	*rules;
 	struct s_list	*stack_a;

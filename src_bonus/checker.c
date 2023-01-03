@@ -6,13 +6,13 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 12:26:17 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/02 20:08:35 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/02 21:41:59 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/checker.h"
 
-void	get_instructions(t_data *data);
+int	get_instructions(t_data *data);
 
 int	main(int argc, char *argv[])
 {
@@ -27,18 +27,19 @@ int	main(int argc, char *argv[])
 	finalize(&data);
 }
 
-static void create_new_rule(void *rule, t_data *data)
+static int create_new_rule(void *rule, t_data *data)
 {
 	t_rule *new_rule;
 	t_rule *last_node;
 
 	new_rule = ft_calloc(1, sizeof(t_rule));
 	if (!new_rule)
-		return (NULL);
+		return (-1);
 	new_rule->instruction = rule;
 	new_rule->stack_a_size = data->stack_a_size;
 	new_rule->stack_b_size = data->stack_b_size;
 	new_rule->next = NULL;
+	data->rules_amount++;
 	last_node = data->rules;
 	if (!last_node)
 		data->rules = new_rule;
@@ -48,21 +49,31 @@ static void create_new_rule(void *rule, t_data *data)
 			last_node = last_node->next;
 		last_node->next = new_rule;
 	}
+	return (0);
 }
 
-void	get_instructions(t_data *data)
+int	get_instructions(t_data *data)
 {
-	int		i;
-	char	**operations;
 	char	*rule;
+	int		i;
 
 	rule = get_next_line_clean(0, 0);
 	while (rule)
 	{
-
+		i = 0;
+		while (i < 12)
+		{
+			if (!data->rules_catalog)
+				exit_error(1, data);
+			if (ft_strncmp(rule, data->rules_catalog[i], 3) == 0)
+				create_new_rule(rule, data);
+			i++;
+		}
+		free(rule);
 		rule = get_next_line_clean(0, 0);
 	}
 	get_next_line_clean(0, 1);
+	return (0);
 }
 
 void	print_instructions(t_data *data)

@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 16:32:14 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/02 21:27:19 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/02 21:36:39 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static void	set_config(int argc, t_data *data)
 	data->user_args = NULL;
 	data->stack_a = NULL;
 	data->stack_b = NULL;
+	data->rules_amount = 0;
 }
 
 static void	set_memory(int argc, t_data *data)
