@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 12:26:17 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/02 22:13:20 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/02 22:28:30 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main(int argc, char *argv[])
 	set_numbers(argv, &data);
 	set_stack(&data);
 	get_instructions(&data);
+	apply_instructions(&data);
 	check_if_is_sorted(&data);
 	finalize(&data);
 }
