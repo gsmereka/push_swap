@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 23:05:35 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/03 00:19:11 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/03 00:21:11 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,7 @@ static int	validate_rule(char **rule, t_data *data)
 	while (i < 11)
 	{
 		if (ft_strncmp(*rule, data->rules_catalog[i], 4) == 0)
-		{
-			add_rule_to_data(*rule, data);
 			return (0);
-		}
 		i++;
 	}
 	free(*rule);
