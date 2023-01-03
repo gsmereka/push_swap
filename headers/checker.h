@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 12:22:00 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/02 22:27:27 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/02 23:06:20 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ int		initialize(int argc, t_data *data);
 // finalize
 void	exit_error(int error_type, t_data *data);
 void	finalize(t_data *data);
+
+// get_instructions
+int		get_instructions(t_data *data);
 
 // GNL
 char	*get_next_line_clean(int fd, int clean);
