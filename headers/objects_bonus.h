@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   objects.h                                          :+:      :+:    :+:   */
+/*   objects copy.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 11:02:22 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/08 15:36:56 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/08 15:35:22 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OBJECTS_H
-# define OBJECTS_H
+#ifndef OBJECTS_BONUS_H
+# define OBJECTS_BONUS_H
 
 typedef struct s_list
 {
@@ -50,6 +50,9 @@ typedef struct s_data
 	int				*user_args;
 	int				stack_a_size;
 	int				stack_b_size;
+	int				rules_amount;
+	char			**rules_catalog;
+	struct s_rule	*rules;
 	struct s_list	*stack_a;
 	struct s_list	*stack_b;
 }	t_data;
