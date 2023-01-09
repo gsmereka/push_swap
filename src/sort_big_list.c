@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/08 22:51:50 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/08 22:56:25 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	sort_big_list(t_data *data)
 	int	pivot;
 
 	init = 0;
+	test_program(data);
+	finalize(data);
 	pivot = data->stack_a_size - 1;
 	ft_quick_sort(init, pivot, data);
 }
