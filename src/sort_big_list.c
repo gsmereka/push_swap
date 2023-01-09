@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/08 22:56:25 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/08 23:18:53 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,30 @@
 
 static void	radix_sort_split(int digit_value, t_data *data);
 static void	radix_sort_merge(t_data *data);
-static int	ft_quick_sort(int init, int pivot, t_data *data);
+static int	ft_quick_sort(int init, int end, t_data *data);
 static int	reajust_nodes(int init, int pivot, t_data *data);
 
 void	sort_big_list(t_data *data)
 {
 	int	init;
-	int	pivot;
+	int	end;
 
 	init = 0;
-	test_program(data);
-	finalize(data);
-	pivot = data->stack_a_size - 1;
-	ft_quick_sort(init, pivot, data);
+	// test_program(data);
+	// finalize(data);
+	end = data->stack_a_size - 1;
+	ft_quick_sort(init, end, data);
 }
 
-static int	ft_quick_sort(int init, int pivot, t_data *data)
+static int	ft_quick_sort(int init, int end, t_data *data)
 {
-	int	new_pivot;
+	int	pivot;
 
-	if (init > pivot)
+	if (init > end)
 		return (0);
-	new_pivot = reajust_nodes(init, pivot, data);
-	ft_quick_sort(init, new_pivot - 1, data);
-	ft_quick_sort(new_pivot + 1, pivot, data);
+	pivot = reajust_nodes(init, end, data);
+	ft_quick_sort(init, pivot - 1, data);
+	ft_quick_sort(pivot + 1, end, data);
 }
 
 static int	reajust_nodes(int init, int pivot, t_data *data)
@@ -52,42 +52,43 @@ static int	reajust_nodes(int init, int pivot, t_data *data)
 	rotates = 0;
 	rotates_init = 0;
 	pivot_node = ft_list_at(data->stack_a, pivot);
-	while (i < init)
+	while (rotates_init < init)
 	{
 		rotates_init++;
 		ft_rotate('a', data);
-		i++;
+		ft_printf("ra\n");
 	}
-	while (i < pivot)
+	while (init <= pivot)
 	{
-		i++;
-		if (data->stack_a->simplified_nmb < pivot_node->simplified_nmb)
+		init++;
+		if (data->stack_a->simplified_nmb <= pivot_node->simplified_nmb)
 		{
-			data->stack_a_size--;
-			data->stack_b_size++;
 			ft_push('b', data);
+			ft_printf("pb\n");
 		}
 		else
 		{
 			rotates++;
 			ft_rotate('a', data);
+			ft_printf("ra\n");
 		}
 	}
-	new_pivot = data->stack_b_size - 1;
+	new_pivot = pivot_node->simplified_nmb;
 	while (rotates)
 	{
 		rotates--;
 		ft_reverse_rotate('a', data);
+		ft_printf("rra\n");
 	}
 	while (data->stack_b)
 	{
 		ft_push('a', data);
-		data->stack_a_size++;
-		data->stack_b_size--;
+		ft_printf("pa\n");
 	}
 	while (rotates_init)
 	{
 		rotates_init--;
+		ft_printf("rra\n");
 		ft_reverse_rotate('a', data);
 	}
 	return (new_pivot);

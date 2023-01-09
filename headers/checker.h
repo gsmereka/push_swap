@@ -6,13 +6,13 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 12:22:00 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/02 23:06:20 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/08 23:23:46 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_H
 # define CHECKER_H
-# include "./objects.h"
+# include "./objects_bonus.h"
 # include "./utils.h"
 # include <stdlib.h>
 # include <unistd.h>
