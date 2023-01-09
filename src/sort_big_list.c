@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/09 10:18:53 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/09 13:21:46 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ void	sort_big_list(t_data *data)
 	int	end;
 
 	init = 0;
-	// test_program(data);
-	// finalize(data);
 	end = data->stack_a_size - 1;
 	ft_quick_sort(init, end, data);
 }
@@ -36,84 +34,74 @@ static int	ft_quick_sort(int init, int end, t_data *data)
 	if (init > end)
 		return (0);
 	pivot = reajust_nodes(init, end, data);
-	ft_quick_sort(init, pivot - 1, data);
 	ft_quick_sort(pivot + 1, end, data);
-}
-
-static int	add_rule_to_data(int rule, t_data *data)
-{
-	t_rule	*new_rule;
-	t_rule	*last_node;
-
-	new_rule = ft_calloc(1, sizeof(t_rule));
-	if (!new_rule)
-		return (-1);
-	new_rule->instruction = rule;
-	new_rule->next = NULL;
-	last_node = data->rules;
-	if (!last_node)
-		data->rules = new_rule;
-	else
-	{
-		while (last_node->next)
-			last_node = last_node->next;
-		last_node->next = new_rule;
-	}
+	ft_quick_sort(init, pivot - 1, data);
 	return (0);
 }
 
-static int	reajust_nodes(int init, int pivot, t_data *data)
+static int	reajust_nodes(int pivot, int end, t_data *data)
 {
 	t_list	*pivot_node;
-	int		i;
 	int		new_pivot;
 	int		rotates;
-	int		rotates_init;
+	int		rotates_end;
 
-	i = 0;
 	rotates = 0;
-	rotates_init = 0;
+	rotates_end = 0;
 	pivot_node = ft_list_at(data->stack_a, pivot);
-	while (rotates_init < init)
+	while (data->stack_a->simplified_nmb != pivot_node->simplified_nmb)
 	{
-		rotates_init++;
+		rotates_end++;
 		ft_rotate('a', data);
 		ft_printf("ra\n");
 	}
-	while (init != pivot)
+	while (end >= pivot)
 	{
-		init++;
-		if (data->stack_a->simplified_nmb > pivot_node->simplified_nmb)
+		end--;
+		if (data->stack_a->simplified_nmb >= pivot_node->simplified_nmb)
 		{
 			ft_push('b', data);
-			ft_printf("pb\n");
+			data->stack_b_size++;
 		}
 		else
 		{
 			rotates++;
 			ft_rotate('a', data);
+			print_necessary_pushes('a', data);
 			ft_printf("ra\n");			
 		}
 	}
-	rotates++;
-	ft_rotate('a', data);
-	ft_printf("ra\n");
-	new_pivot = pivot_node->simplified_nmb;
 	while (data->stack_b)
 	{
 		ft_push('a', data);
-		ft_printf("pa\n");
+		if (!data->stack_b_size)
+			print_necessary_pushes('b', data);
+		else
+			data->stack_b_size--;
 	}
-	rotates_init = rotates_init + rotates;
-	while (rotates_init)
+	rotates_end = rotates_end + rotates;
+	while (rotates_end)
 	{
-		rotates_init--;
+		rotates_end--;
 		ft_printf("rra\n");
 		ft_reverse_rotate('a', data);
 	}
+	new_pivot = pivot_node->simplified_nmb;
 	return (new_pivot);
 }
 
+// pb
+// pb
+// ra
+// ra
+// pa
+// pa
+// rra
+// rra
+// pivot 0
+// pivot node 2
+// data node 1
+// pivot 2
 void	sort_big_list_3(t_data *data)
 {
 	int	digit_pos;
