@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/09 00:27:37 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/09 10:18:53 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,39 +78,37 @@ static int	reajust_nodes(int init, int pivot, t_data *data)
 	{
 		rotates_init++;
 		ft_rotate('a', data);
-		// add_rule_to_data(30, data);
+		ft_printf("ra\n");
 	}
-	while (init <= pivot)
+	while (init != pivot)
 	{
 		init++;
-		if (data->stack_a->simplified_nmb <= pivot_node->simplified_nmb)
+		if (data->stack_a->simplified_nmb > pivot_node->simplified_nmb)
 		{
 			ft_push('b', data);
-			// add_rule_to_data(11, data);
+			ft_printf("pb\n");
 		}
 		else
 		{
 			rotates++;
 			ft_rotate('a', data);
-			// add_rule_to_data(30, data);
+			ft_printf("ra\n");			
 		}
 	}
+	rotates++;
+	ft_rotate('a', data);
+	ft_printf("ra\n");
 	new_pivot = pivot_node->simplified_nmb;
-	while (rotates)
-	{
-		rotates--;
-		ft_reverse_rotate('a', data);
-		// add_rule_to_data(330, data);
-	}
 	while (data->stack_b)
 	{
 		ft_push('a', data);
-		// add_rule_to_data(10, data);
+		ft_printf("pa\n");
 	}
+	rotates_init = rotates_init + rotates;
 	while (rotates_init)
 	{
 		rotates_init--;
-		// add_rule_to_data(330, data);
+		ft_printf("rra\n");
 		ft_reverse_rotate('a', data);
 	}
 	return (new_pivot);
