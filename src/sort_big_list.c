@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/31 20:08:44 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/08 22:00:32 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,36 @@
 
 static void	radix_sort_split(int digit_value, t_data *data);
 static void	radix_sort_merge(t_data *data);
+static int	ft_quick_sort(int init, int pivot, t_data *data);
+static int	reajust_nodes(int init, int pivot, t_data *data);
 
 void	sort_big_list(t_data *data)
+{
+	int	init;
+	int	pivot;
+
+	init = 0;
+	pivot = data->stack_a_size - 1;
+	ft_quick_sort(init, pivot, data);
+}
+
+static int	ft_quick_sort(int init, int pivot, t_data *data)
+{
+	int	new_pivot;
+
+	if (init > pivot)
+		return (0);
+	new_pivot = reajust_nodes(init, pivot, data);
+	ft_quick_sort(init, new_pivot - 1, data);
+	ft_quick_sort(new_pivot + 1, pivot, data);
+}
+
+static int	reajust_nodes(int init, int pivot, t_data *data)
+{
+	return (0);
+}
+
+void	sort_big_list_3(t_data *data)
 {
 	int	digit_pos;
 
