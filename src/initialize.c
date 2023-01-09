@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 16:32:14 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/04 22:54:22 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/08 23:47:19 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	initialize(int argc, t_data *data)
 
 static void	set_config(int argc, t_data *data)
 {
+	data->rules = NULL;
 	data->stack_a_size = argc - 1;
 	data->stack_b_size = 0;
 	data->user_args = NULL;

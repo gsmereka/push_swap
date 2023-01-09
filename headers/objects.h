@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 11:02:22 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/08 23:33:59 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/09 00:10:27 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,23 @@ typedef struct s_rotate
 	t_list	*penult_node;
 	t_list	*last_node;
 }	t_rotate;
+ 
+// DICIONARIO:
+// 10 - PA
+// 11 - PB
+// 20 - SA
+// 21 - SB
+// 22 - SS
+// 30 - RA
+// 31 - RB
+// 33 - RR
+// 330 - RRA
+// 331 - RRB
+// 333 - RRR
 
 typedef struct s_rule
 {
-	char			*instruction;
+	int				instruction;
 	struct s_rule	*next;
 }	t_rule;
 

@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/08 23:18:53 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/09 00:27:37 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,28 @@ static int	ft_quick_sort(int init, int end, t_data *data)
 	ft_quick_sort(pivot + 1, end, data);
 }
 
+static int	add_rule_to_data(int rule, t_data *data)
+{
+	t_rule	*new_rule;
+	t_rule	*last_node;
+
+	new_rule = ft_calloc(1, sizeof(t_rule));
+	if (!new_rule)
+		return (-1);
+	new_rule->instruction = rule;
+	new_rule->next = NULL;
+	last_node = data->rules;
+	if (!last_node)
+		data->rules = new_rule;
+	else
+	{
+		while (last_node->next)
+			last_node = last_node->next;
+		last_node->next = new_rule;
+	}
+	return (0);
+}
+
 static int	reajust_nodes(int init, int pivot, t_data *data)
 {
 	t_list	*pivot_node;
@@ -56,7 +78,7 @@ static int	reajust_nodes(int init, int pivot, t_data *data)
 	{
 		rotates_init++;
 		ft_rotate('a', data);
-		ft_printf("ra\n");
+		// add_rule_to_data(30, data);
 	}
 	while (init <= pivot)
 	{
@@ -64,13 +86,13 @@ static int	reajust_nodes(int init, int pivot, t_data *data)
 		if (data->stack_a->simplified_nmb <= pivot_node->simplified_nmb)
 		{
 			ft_push('b', data);
-			ft_printf("pb\n");
+			// add_rule_to_data(11, data);
 		}
 		else
 		{
 			rotates++;
 			ft_rotate('a', data);
-			ft_printf("ra\n");
+			// add_rule_to_data(30, data);
 		}
 	}
 	new_pivot = pivot_node->simplified_nmb;
@@ -78,17 +100,17 @@ static int	reajust_nodes(int init, int pivot, t_data *data)
 	{
 		rotates--;
 		ft_reverse_rotate('a', data);
-		ft_printf("rra\n");
+		// add_rule_to_data(330, data);
 	}
 	while (data->stack_b)
 	{
 		ft_push('a', data);
-		ft_printf("pa\n");
+		// add_rule_to_data(10, data);
 	}
 	while (rotates_init)
 	{
 		rotates_init--;
-		ft_printf("rra\n");
+		// add_rule_to_data(330, data);
 		ft_reverse_rotate('a', data);
 	}
 	return (new_pivot);
