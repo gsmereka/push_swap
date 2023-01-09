@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 23:03:35 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/04 22:54:16 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/08 22:54:35 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <fcntl.h>
 # include <errno.h>
 
+void	test_program(t_data *data);
 // check_args
 void	check_args(int argc);
 

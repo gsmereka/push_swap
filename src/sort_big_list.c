@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:32:52 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/08 22:39:03 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/08 22:51:50 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,39 +40,55 @@ static int	ft_quick_sort(int init, int pivot, t_data *data)
 
 static int	reajust_nodes(int init, int pivot, t_data *data)
 {
-	// t_list	*node;
 	t_list	*pivot_node;
 	int		i;
 	int		new_pivot;
+	int		rotates;
+	int		rotates_init;
 
 	i = 0;
-	// node = data->stack_a;
+	rotates = 0;
+	rotates_init = 0;
 	pivot_node = ft_list_at(data->stack_a, pivot);
 	while (i < init)
 	{
+		rotates_init++;
 		ft_rotate('a', data);
 		i++;
 	}
-	while (i <= pivot)
+	while (i < pivot)
 	{
 		i++;
-		if (data->stack_a->simplified_numb <= pivot_node->simplified_numb)
+		if (data->stack_a->simplified_nmb < pivot_node->simplified_nmb)
 		{
 			data->stack_a_size--;
 			data->stack_b_size++;
 			ft_push('b', data);
 		}
 		else
+		{
+			rotates++;
 			ft_rotate('a', data);
+		}
 	}
 	new_pivot = data->stack_b_size - 1;
-	i = 0;
-	while (data->stack_a->simplified_numb != new_pivot)
+	while (rotates)
 	{
-		i++;
+		rotates--;
 		ft_reverse_rotate('a', data);
 	}
-	return (0);
+	while (data->stack_b)
+	{
+		ft_push('a', data);
+		data->stack_a_size++;
+		data->stack_b_size--;
+	}
+	while (rotates_init)
+	{
+		rotates_init--;
+		ft_reverse_rotate('a', data);
+	}
+	return (new_pivot);
 }
 
 void	sort_big_list_3(t_data *data)
