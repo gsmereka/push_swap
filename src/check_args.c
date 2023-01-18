@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 22:57:58 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/18 20:04:01 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/18 20:06:37 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,5 @@ static int	arg_to_integer(char *arg, t_data *data)
 		save = (save * 10) + (arg[i] - '0');
 		i++;
 	}
-	if (arg[i] != '\0')
-		exit_error(1, data);
 	return (save * sign);
 }
