@@ -12,7 +12,14 @@
 
 #include "../headers/push_swap.h"
 
+static void	check_args_amount(int argc);
+
 void	check_args(int argc)
+{
+	check_args_amount(argc);
+}
+
+static void	check_args_amount(int argc)
 {
 	if (argc <= 2)
 		exit(0);
