@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 21:04:43 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/18 19:52:21 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/18 20:05:05 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int argc, char *argv[])
 	t_data	data;
 
 	initialize(argc, &data);
-	set_numbers(argv, &data);
+	check_args(argv, &data);
 	set_stack(&data);
 	init_sort(&data);
 	finalize(&data);
