@@ -12,15 +12,69 @@
 
 #include "../headers/push_swap.h"
 
-static void	check_args_amount(int argc);
+static int	compare_absolute_values(char *nbr_copy, char *original_nbr);
 
-void	check_args(int argc)
+int	check_if_is_numeric(char *arg, t_data *data)
 {
-	check_args_amount(argc);
+	int	i;
+
+	i = 0;
+	while ((arg[i] >= '\t' && arg[i] <= '\r') || arg[i] == ' ')
+		i++;
+	if (arg[i] == '-' || arg[i] == '+')
+		i++;
+	while (ft_isdigit(arg[i]) > 0)
+		i++;
+	if (arg[i] != '\0')
+		exit_error(1, data);
+	return (0);
 }
 
-static void	check_args_amount(int argc)
+int	check_integer_size(int nbr, char *original_nbr, t_data *data)
 {
-	if (argc <= 2)
-		exit(0);
+	char	*nbr_copy;
+	int		diff;
+
+	nbr_copy = ft_itoa(nbr);
+	if (!nbr_copy)
+		exit_error(12, data);
+	diff = compare_absolute_values(nbr_copy, original_nbr);
+	free(nbr_copy);
+	if (diff != 0)
+		exit_error(1, data);
+	return (0);
+}
+
+static int	compare_absolute_values(char *nbr_copy, char *original_nbr)
+{
+	int	diff;
+
+	if ((*original_nbr != '-') && *nbr_copy == '-')
+		return (-1);
+	while ((*original_nbr >= '\t' && *original_nbr <= '\r')
+		|| *original_nbr == ' ')
+		original_nbr++;
+	if (*original_nbr == '+' || *original_nbr == '-')
+		original_nbr++;
+	while (*original_nbr == '0' && *original_nbr + 1 != '\0')
+		original_nbr++;
+	if (*nbr_copy == '-')
+		nbr_copy++;
+	diff = ft_strncmp(nbr_copy, original_nbr,
+			ft_strlen(original_nbr));
+	return (diff);
+}
+
+int	check_integer_duplicates(int *int_list, int int_pos, t_data *data)
+{
+	int	i;
+
+	i = 0;
+	while (i < int_pos)
+	{
+		if (int_list[i] == int_list[int_pos])
+			exit_error(1, data);
+		i++;
+	}
+	return (0);
 }

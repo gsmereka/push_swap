@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 23:03:35 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/04 22:54:16 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/18 20:01:45 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@
 # include <errno.h>
 
 // check_args
-void	check_args(int argc);
+void	check_args_amount(int argc, t_data *data);
+int		check_if_is_numeric(char *arg, t_data *data);
+int		check_integer_size(int nbr, char *original_nbr, t_data *data);
+int		check_integer_duplicates(int *int_list, int int_pos, t_data *data);
 
 // set_numbers
 void	set_numbers(char **argv, t_data *data);
