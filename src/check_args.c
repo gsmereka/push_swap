@@ -6,19 +6,21 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 22:57:58 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/18 23:08:11 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/18 23:18:19 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
 static int	arg_to_integer(char *arg);
+static void	check_args_amount(int argc, t_data *data);
 
-void	check_args(char **argv, t_data *data)
+void	check_args(int argc, char **argv, t_data *data)
 {
 	int	i;
 
 	i = 0;
+	check_args_amount(argc, data);
 	while (argv[i + 1])
 	{
 		check_if_is_numeric(argv[i + 1], data);
@@ -50,4 +52,10 @@ static int	arg_to_integer(char *arg)
 		i++;
 	}
 	return (save * sign);
+}
+
+static void	check_args_amount(int argc, t_data *data)
+{
+	if (argc <= 1)
+		exit_error(1, data);
 }
