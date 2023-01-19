@@ -23,7 +23,9 @@ int	check_if_is_numeric(char *arg, t_data *data)
 		i++;
 	if (arg[i] == '-' || arg[i] == '+')
 		i++;
-	while (ft_isdigit(arg[i]) > 0)
+	if (!ft_isdigit(arg[i]))
+		exit_error(1, data);
+	while (ft_isdigit(arg[i]))
 		i++;
 	if (arg[i] != '\0')
 		exit_error(1, data);
