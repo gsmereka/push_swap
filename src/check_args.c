@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 22:57:58 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/18 23:29:33 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/18 23:39:13 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 static int	arg_to_integer(char *arg);
 static void	check_args_amount(int argc, t_data *data);
-static void	check_and_store_args(char **argv, t_data *data);
+static void	check_integers(char **argv, t_data *data);
 
 void	check_args(int argc, char **argv, t_data *data)
 {
 	check_args_amount(argc, data);
-	check_and_store_args(argv, data);
+	check_integers(argv, data);
 }
 
 static int	arg_to_integer(char *arg)
@@ -51,7 +51,7 @@ static void	check_args_amount(int argc, t_data *data)
 		finalize(data);
 }
 
-static void	check_and_store_args(char **argv, t_data *data)
+static void	check_integers(char **argv, t_data *data)
 {
 	int	i;
 
