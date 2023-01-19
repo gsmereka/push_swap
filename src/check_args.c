@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 22:57:58 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/18 23:18:19 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/18 23:29:33 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,12 @@
 
 static int	arg_to_integer(char *arg);
 static void	check_args_amount(int argc, t_data *data);
+static void	check_and_store_args(char **argv, t_data *data);
 
 void	check_args(int argc, char **argv, t_data *data)
 {
-	int	i;
-
-	i = 0;
 	check_args_amount(argc, data);
-	while (argv[i + 1])
-	{
-		check_if_is_numeric(argv[i + 1], data);
-		data->user_args[i] = arg_to_integer(argv[i + 1]);
-		check_integer_size(data->user_args[i], argv[i + 1], data);
-		check_integer_duplicates(data->user_args, i, data);
-		i++;
-	}
+	check_and_store_args(argv, data);
 }
 
 static int	arg_to_integer(char *arg)
@@ -57,5 +48,20 @@ static int	arg_to_integer(char *arg)
 static void	check_args_amount(int argc, t_data *data)
 {
 	if (argc <= 1)
-		exit_error(1, data);
+		finalize(data);
+}
+
+static void	check_and_store_args(char **argv, t_data *data)
+{
+	int	i;
+
+	i = 0;
+	while (argv[i + 1])
+	{
+		check_if_is_numeric(argv[i + 1], data);
+		data->user_args[i] = arg_to_integer(argv[i + 1]);
+		check_integer_size(data->user_args[i], argv[i + 1], data);
+		check_integer_duplicates(data->user_args, i, data);
+		i++;
+	}
 }
