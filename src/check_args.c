@@ -6,13 +6,13 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 22:57:58 by gsmereka          #+#    #+#             */
-/*   Updated: 2023/01/18 20:06:37 by gsmereka         ###   ########.fr       */
+/*   Updated: 2023/01/18 23:08:11 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
-static int	arg_to_integer(char *arg, t_data *data);
+static int	arg_to_integer(char *arg);
 
 void	check_args(char **argv, t_data *data)
 {
@@ -22,14 +22,14 @@ void	check_args(char **argv, t_data *data)
 	while (argv[i + 1])
 	{
 		check_if_is_numeric(argv[i + 1], data);
-		data->user_args[i] = arg_to_integer(argv[i + 1], data);
+		data->user_args[i] = arg_to_integer(argv[i + 1]);
 		check_integer_size(data->user_args[i], argv[i + 1], data);
 		check_integer_duplicates(data->user_args, i, data);
 		i++;
 	}
 }
 
-static int	arg_to_integer(char *arg, t_data *data)
+static int	arg_to_integer(char *arg)
 {
 	int	sign;
 	int	save;
